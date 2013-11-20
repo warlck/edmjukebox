@@ -1,9 +1,9 @@
 Edmplayer::Application.routes.draw do
-  get "songs/index"
+root :to =>  "songs#index"
 
-  get "songs/upload"
+  match "songs/upload", as: "upload"
 
-  get "songs/delete"
+  match "songs/delete", as: "delete"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,2 +1,49 @@
-<h1>Songs#index</h1>
-<p>Find me in app/views/songs/index.html.erb</p>
+<header>
+	<h1> My First Music Streaming Application</h1>
+</header>
+
+<div class="clear"></div>
+<section id="sidebar">
+	<h2>HTML5 Audio</h2>
+	<section id = "audio"> No song currently playing.</section>
+
+	<h2>Upload a new MP3:</h2>
+	<%= form_tag upload_path, method: "post", multipart: true do  %>
+	    <%= file_field_tag "mp3file" %>
+	    <%= submit_tag "Upload" %>
+	<% end %>
+</section>
+<section id = "main">
+	<h2>Download/Delete Songs</h2>
+	<table>
+	<% @songs.each do |song| %>
+		<tr>
+			<td><%= song.key %></td>
+			<td><%= link_to 'Delete', "songs/delete/?song="+ song.key, 
+			confirm:"Are you sure you want to delete " + song.key + '?' %></td>
+			<td><%= link_to "HTML5 Audio", download_url_for(song.key), class: "html5" %></td>
+
+		</tr>
+	<% end %>
+    </table>
+</section>
+<div class="clear"></div>
+
+
+<script type="text/javascript">
+$(document).ready(function() {  
+    var audioSection = $('section#audio');  
+    $('a.html5').click(function() {  
+  
+        var audio = $('<audio>', {  
+             controls : 'controls'  
+        });  
+  
+        var url = $(this).attr('href');  
+        $('<source>').attr('src', url).appendTo(audio);  
+        audioSection.html(audio);  
+        return false;  
+    });  
+}); 
+</script>
+
