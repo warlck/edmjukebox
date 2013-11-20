@@ -1,6 +1,6 @@
 class SongsController < ApplicationController
   def index
-  	@songs = AWS::S3::Bucket.find(BUCKET).objects
+  	songs
   end
 
   def upload
@@ -27,5 +27,11 @@ class SongsController < ApplicationController
   def sanitize_filename(file_name)
   	just_filename = File.basename(file_name)
   	just_filename.sub(/[^\w\.\-]/,'_')
+  end
+
+
+  def songs 
+    objects = AWS::S3::Bucket.objects(BUCKET, prefix: 'music/')
+    @songs = objects.select { |obj| !(obj.key =~ /\/$/)}
   end
 end
