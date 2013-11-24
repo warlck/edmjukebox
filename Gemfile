@@ -9,8 +9,7 @@ gem 'rails', '3.2.13'
 gem 'pg'
 gem 'aws-s3', :require => 'aws/s3' 
 gem 'newrelic_rpm'
-gem 'fog'
-gem 'unf'
+
 
 group :development, :test do
 	gem 'rspec-rails', '2.11.0'
