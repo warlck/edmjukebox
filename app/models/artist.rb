@@ -7,4 +7,11 @@ class Artist < ActiveRecord::Base
   validates :channel_title, presence: true
   validates :url, presence: true, format: { with: URI.regexp }
   validates :icon_url, presence: true, format: { with: URI.regexp}
+
+
+
+  def self.create_artist feed_url
+  end
+
+
 end

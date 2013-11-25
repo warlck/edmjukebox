@@ -50,6 +50,19 @@ describe Artist do
   end
 
 
+  describe ".create_artist" do
+  	  it "is defined as class method" do
+  	  	  expect(Artist).to respond_to(:create_artist)
+  	  end
+
+  	  it "expects an argument" do
+	  	  expect{Artist.create_artist }.to raise_error(ArgumentError)
+  	  end
+
+
+  end
+
+
 end
 
 
