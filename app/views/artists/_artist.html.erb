@@ -1,4 +1,5 @@
 <%= div_for artist do %>
   <img src="<%= artist.icon_url %>">
-  <p>Desciption: <%= artist.channel_description %></p>
+  <p class = channel_title><%= artist.channel_title %></p>
+  <p class = artist_name><%= artist.name %></p>
 <% end %>
