@@ -8,7 +8,9 @@ feature 'View player homepage' do
 	end
 
 	scenario 'user sees list of artists' do
+		Artist.create(name: 'Steven Aoki')
 		visit root_path
 		expect(page).to have_css '[data-list="artists"]'
+		expect(page).to have_css 'li.artist'
 	end
 end

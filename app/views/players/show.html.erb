@@ -1,3 +1,5 @@
 <ul id = 'artists' data-list = 'artists'>
-   
+   <% @artists.each do |artist| %>
+     <li class=artist><%= render artist %></li>
+   <% end %>
 </ul>
