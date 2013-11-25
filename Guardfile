@@ -5,7 +5,7 @@ guard 'rspec' , version: 2, all_after_pass: false, cli: '--drb' do
   watch(%r{^spec/.+_spec\.rb$})
   watch(%r{^lib/(.+)\.rb$})     { |m| "spec/lib/#{m[1]}_spec.rb" }
   watch('spec/spec_helper.rb')  { "spec" }
-
+  
   # Rails example
   watch(%r{^app/(.+)\.rb$})                           { |m| "spec/#{m[1]}_spec.rb" }
   watch(%r{^app/(.*)(\.erb|\.haml)$})                 { |m| "spec/#{m[1]}#{m[2]}_spec.rb" }
@@ -20,6 +20,9 @@ guard 'rspec' , version: 2, all_after_pass: false, cli: '--drb' do
   # Turnip features and steps
   watch(%r{^spec/acceptance/(.+)\.feature$})
   watch(%r{^spec/acceptance/steps/(.+)_steps\.rb$})   { |m| Dir[File.join("**/#{m[1]}.feature")][0] || 'spec/acceptance' }
+
+  #factories
+  watch('spec/factories.rb')
 end
 
 
@@ -34,4 +37,5 @@ guard 'spork', :rspec_env => { 'RAILS_ENV' => 'test' } do
   watch('test/test_helper.rb') { :test_unit }
   watch(%r{features/support/}) { :cucumber }
   watch('spec/support')
+  watch('spec/factories.rb')
 end
