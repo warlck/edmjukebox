@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class SongsController < ApplicationController
   def index
   	songs

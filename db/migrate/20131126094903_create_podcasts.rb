@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreatePodcasts < ActiveRecord::Migration
   def change
     create_table :podcasts do |t|

@@ -10,6 +10,7 @@ gem 'pg'
 gem 'aws-s3', :require => 'aws/s3' 
 gem 'newrelic_rpm'
 gem 'feedzirra'
+gem 'magic_encoding'
 
 
 group :development, :test do
