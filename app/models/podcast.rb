@@ -1,6 +1,30 @@
 # -*- encoding : utf-8 -*-
 class Podcast < ActiveRecord::Base
-  attr_accessible :belongs_to, :duration, :file_url, :guid, :published, :summary, :title   
+  attr_accessible :duration, :file_url, 
+   :guid, :published, :summary, :title   
+
+
+belongs_to :artist
+
+validates :title, presence: true
+validates :duration, presence: true
+validates :guid, presence: true, uniqueness:  true
+validates :published, presence: true 
+validates :summary, presence: true
+validates :file_url, presence: true, format: {with: URI.regexp}
+validate  :published_is_date?
+
+
+
+
+
+private
+ def published_is_date?
+    if !published.is_a?(Date)
+      errors.add(:published, 'must be a valid date') 
+    end
+  end
+
 end
 
 

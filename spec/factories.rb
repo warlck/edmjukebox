@@ -13,7 +13,8 @@ FactoryGirl.define do
 		title 'Steven Aoki'
 		summary "Aoki's House"
 		guid "The best music ever"
-		published 'http://www.aoki.com'
+		published '21 November 2123'
 		file_url "http://media2-so.podtree.com/media/itunes_image/aokishouse_podcast.png"
+		duration '1:00:00'
 	end
 end
