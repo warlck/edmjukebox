@@ -34,6 +34,10 @@ describe Artist do
 
   it "is invalid without channel_title" do
   	 invalid_without_attribute "channel_title"
+  end 
+
+   it "is invalid without feed_url" do
+     invalid_without_attribute "feed_url"
   end
 
 
