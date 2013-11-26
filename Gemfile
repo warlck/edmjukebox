@@ -9,6 +9,7 @@ gem 'rails', '3.2.13'
 gem 'pg'
 gem 'aws-s3', :require => 'aws/s3' 
 gem 'newrelic_rpm'
+gem 'feedzirra'
 
 
 group :development, :test do
@@ -17,6 +18,7 @@ group :development, :test do
 	gem 'guard-spork'
 	gem 'childprocess'
 	gem 'spork'
+	gem 'debugger'
 end
 
 group :test do

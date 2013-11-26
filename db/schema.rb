@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131125023246) do
+ActiveRecord::Schema.define(:version => 20131126045528) do
 
   create_table "artists", :force => true do |t|
     t.string   "name"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(:version => 20131125023246) do
     t.string   "icon_url"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
+    t.string   "feed_url"
   end
 
 end

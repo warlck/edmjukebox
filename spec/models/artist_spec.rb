@@ -1,6 +1,23 @@
 require 'spec_helper'
 
+
 describe Artist do
+
+  describe "has attribute" do
+    let(:artist) { create(:artist)  }
+
+    subject { artist}
+
+    it { should respond_to :name}
+    it { should respond_to :channel_title}
+    it { should respond_to :channel_description }
+    it { should respond_to :icon_url }
+    it { should respond_to :url }
+    it { should respond_to :feed_url}
+    
+  end
+
+
   it "is valid with name, channel_title" + 
           " channel_decription, icon_url, url provided " do
   	   artist = create(:artist)
@@ -58,8 +75,28 @@ describe Artist do
   	  it "expects an argument" do
 	  	  expect{Artist.create_artist }.to raise_error(ArgumentError)
   	  end
+        
+    
 
+      describe "given valid feed_url address" do
+          it "creates new aritst for valid feed" do
+            expect {Artist.create_artist(local_feed_url(true))}.
+                                   to change(Artist, :count).by(1)
+          end
 
+          it "does not create new artist for invalid feed" do
+             expect {Artist.create_artist(local_feed_url(false))}.
+                                   to change(Artist, :count).by(0)
+          end
+      end
+
+      describe "given invalid feed_url address" do
+        it "does not create new aritst" do
+               expect {Artist.create_artist("invalid url")}.
+                                   to change(Artist, :count).by(0)
+        end
+    
+      end
   end
 
 
@@ -69,4 +106,12 @@ end
 def invalid_without_attribute attribute
     expect(build(:artist, attribute => nil)).
   	      to have(1).errors_on(attribute)
+end
+
+def local_feed_url valid
+   if valid
+      "file://#{Dir.pwd}/spec/avicii.rss"
+   else
+      "file://#{Dir.pwd}/spec/empty.rss"
+   end
 end
