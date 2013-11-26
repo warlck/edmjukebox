@@ -3,7 +3,7 @@ require 'spec_helper'
 
 describe Artist do
 
-  describe "has attribute" do
+  describe "instance" do
     let(:artist) { create(:artist)  }
 
     subject { artist}
@@ -13,8 +13,9 @@ describe Artist do
     it { should respond_to :channel_description }
     it { should respond_to :icon_url }
     it { should respond_to :url }
-    it { should respond_to :feed_url}
-    
+    it { should respond_to :feed_url }
+    it { should respond_to :podcasts } 
+
   end
 
 
@@ -70,6 +71,7 @@ describe Artist do
   	end
   end
 
+  
 
   describe ".create_artist" do
   	  it "is defined as class method" do
@@ -99,9 +101,38 @@ describe Artist do
                expect {Artist.create_artist("invalid url")}.
                                    to change(Artist, :count).by(0)
         end
-    
+      end
+
+
+
+  end
+
+  describe "has_many podcasts association" do
+
+      before :each do 
+        @artist = create(:artist)
+        @podcast = build(:podcast)
+      end
+
+      it "enables creating Podcast" do      
+         expect {@artist.podcasts << @podcast}.
+                      to change(Podcast, :count).by(1)
+      end
+
+
+      it "returns all related podcasts" do
+          @artist.podcasts << @podcast
+          expect(@artist.podcasts).to eq [@podcast] 
+      end
+
+      it "destroys all related podcasts upon deletion of artist" do
+         @artist.podcasts << @podcast
+         @artist.destroy
+         expect(Podcast.all).to be_empty
       end
   end
+
+
 
 
 end

@@ -10,11 +10,21 @@ require 'factory_girl'
   validates :icon_url, presence: true, format: { with: URI.regexp}
   validates :feed_url, presence: true
 
+  
+  has_many :podcasts, dependent: :destroy
+  
 
   def self.create_artist feed_url
      feed = get_feed_data(feed_url)
      @artist = artist_from_feed feed, feed_url  
   end
+
+
+
+
+
+
+
 
 
   private 
