@@ -53,7 +53,7 @@ describe Artist do
 
 
 
-    describe "url field" do
+    context "url field" do
       it "can not be empty" do
         expect(build(:artist, url: nil)).not_to be_valid
       end
@@ -67,7 +67,7 @@ describe Artist do
       end
     end
 
-    describe "icon_url field" do
+    context "icon_url field" do
       it "can not be empty" do
         expect(build(:artist, icon_url: nil)).not_to be_valid
       end
@@ -93,11 +93,9 @@ describe Artist do
       end
         
 
-      describe "given valid feed_url address" do
-
+      context "given valid feed_url address" do
           it "creates new artist for valid feed" do
-              expect {Artist.create_artist(local_feed_url(true))}.
-                                     to change(Artist, :count).by(1)
+              changes_artist_count_by local_feed_url(true), 1
           end 
 
          context "with valid feed" do
@@ -129,15 +127,13 @@ describe Artist do
          end
           
           it "does not create new artist for invalid feed" do
-             expect {Artist.create_artist(local_feed_url(false))}.
-                                   to change(Artist, :count).by(0)
+             changes_artist_count_by local_feed_url(false), 0 
           end
       end
 
-      describe "given invalid feed_url address" do
+      context "given invalid feed_url address" do
         it "does not create new aritst" do
-               expect {Artist.create_artist("invalid url")}.
-                                   to change(Artist, :count).by(0)
+               changes_artist_count_by "invalid feed", 0
         end
       end
     end
@@ -147,21 +143,20 @@ describe Artist do
     before :each do 
       @artist = create(:artist)
       @podcast = build(:podcast)
+      @artist.podcasts << @podcast
     end
 
     it "enables creating Podcast" do      
-       expect {@artist.podcasts << @podcast}.
+       expect {@artist.podcasts << create(:podcast, guid: "new guid")}.
                     to change(Podcast, :count).by(1)
     end
 
 
     it "returns all related podcasts" do
-        @artist.podcasts << @podcast
         expect(@artist.podcasts).to eq [@podcast] 
     end
 
     it "destroys all related podcasts upon deletion of artist" do
-       @artist.podcasts << @podcast
        @artist.destroy
        expect(Podcast.all).to be_empty
     end
@@ -177,29 +172,5 @@ describe Artist do
            expect(artist.podcasts.size).to eq 2
       end
   end
- 
-
 end
 
-
-def invalid_without_attribute attribute
-    expect(build(:artist, attribute => nil)).
-  	      to have(1).errors_on(attribute)
-end
-
-def local_feed_url valid
-   if valid
-      "file://#{Dir.pwd}/spec/avicii.rss"
-   else
-      "file://#{Dir.pwd}/spec/empty.rss"
-   end
-end
-
-
-def avicii field
-  avicii = {channel_description: "Avicii LE7ELS is the official monthly podcast direct from the studio of Tim Bergling aka Avicii. Featuring exclusive music, interviews, mixes and live reports from Avicii’s shows around the world, this is one Podcast you need to subscribe to! Produced by the NoiseHouse www.thenoisehouse.com.",
-            name: "Avicii", channel_title: "AVICII - LEVELS PODCAST",
-            icon_url: "http://media2-av.podtree.com/media/itunes_image/AVICII-LEVELS-THUMBNAIL-JUNE-2011.jpg",
-            url: "http://officialaviciipodcast.podtree.com" }
-  return avicii[field]
-end            
