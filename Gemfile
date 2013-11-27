@@ -11,6 +11,7 @@ gem 'aws-s3', :require => 'aws/s3'
 gem 'newrelic_rpm'
 gem 'feedzirra'
 gem 'magic_encoding'
+gem "validates_timeliness", "~> 3.0.14"
 
 
 group :development, :test do

@@ -166,10 +166,14 @@ end
 
 #with callbacks turned on
 describe Artist do
-  describe "add_entries callback" do
+  describe "add_entries callback" do     
       it "creates associated podcasts" do
            artist = Artist.create_artist(local_feed_url(true))
            expect(artist.podcasts.size).to eq 2
+      end
+
+      it "changes the number of Podcast objects" do
+         expect{create(:artist)}.to change(Podcast, :count).by(2)
       end
   end
 end

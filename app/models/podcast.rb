@@ -8,22 +8,16 @@ belongs_to :artist
 
 validates :title, presence: true
 validates :duration, presence: true
-validates :guid, presence: true, uniqueness:  true
+validates :guid, presence: true, uniqueness: true
 validates :published, presence: true 
 validates :summary, presence: true
 validates :file_url, presence: true, format: {with: URI.regexp}
-validate  :published_is_date?
+validates_datetime :published
 
 
 
 
 
-private
- def published_is_date?
-    if !published.is_a?(Date)
-      errors.add(:published, 'must be a valid date') 
-    end
-  end
 
 end
 

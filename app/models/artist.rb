@@ -25,8 +25,6 @@ require 'factory_girl'
 
 
 
-
-
   private 
 
      def self.get_feed_data feed_url
@@ -49,7 +47,7 @@ require 'factory_girl'
      def add_entries  
        feed = Artist.get_feed_data(self.feed_url)
         feed.entries.each do |entry|
-          unless Podcast.exists?(guid: entry.id)
+          unless Podcast.exists?( guid: entry.id)
             podcasts << Podcast.create(
               title: entry.title,
               summary: entry.itunes_summary,

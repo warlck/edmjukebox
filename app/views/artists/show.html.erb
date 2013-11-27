@@ -1,0 +1,18 @@
+<div id = 'artist_sidebar' class="sidebar">
+	 <img  data-image="artist_icon"src="<%= @artist.icon_url %>">
+	 <div class='links'>
+	 	<h4 >Links</h4>
+	 	<%= link_to 'Website', @artist.url %>
+	 	<%= link_to 'Report a Concern', '#' %>
+	 </div>
+</div>
+
+<div >
+	<ul id = 'podcasts' >
+		<% @artist.podcasts.each do |podcast| %>
+			<li class="podcast">
+				<audio src='<%= podcast.file_url%>' controls></audio>
+			</li>
+		<% end %>
+	</ul>
+</div>
