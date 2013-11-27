@@ -55,3 +55,8 @@ a:hover {
 td {
 	padding: 5px;
 }
+
+img.thumbnail {
+	width: 200px;
+	height: auto;
+}

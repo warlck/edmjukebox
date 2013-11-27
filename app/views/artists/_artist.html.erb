@@ -1,5 +1,8 @@
 <%= div_for artist do %>
-  <img src="<%= artist.icon_url %>">
-  <p class = channel_title><%= artist.channel_title %></p>
-  <p class = artist_name><%= artist.name %></p>
+  <a href="<%= artist_path(artist)%>">
+  	 <img  class = 'thumbnail' src="<%= artist.icon_url %>">
+  	 <p class = channel_title><%= artist.channel_title %></p> 
+  	 <p class = artist_name><%= artist.name %></p>
+  </a>
+              
 <% end %>

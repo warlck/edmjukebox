@@ -2,6 +2,7 @@
 Edmplayer::Application.routes.draw do
 root :to =>  "players#show"
 
-resources :player , only: [:show]
+resource :player , only: [:show]
+resources :artists, only: [:show]
 
 end
