@@ -17,48 +17,48 @@ describe Podcast do
 
 
    it "is invalid without title" do
-   	  podcast_invalid_without :title
+   	  invalid_without :title
    end
 
    it "is invalid without duration" do
-   	  podcast_invalid_without :duration
+   	  invalid_without :duration
    end
 
    it "is invalid without guid" do
-   	 podcast_invalid_without :guid
+   	 invalid_without :guid
    end
 
 
    it "is invalid without summary" do
-   	  podcast_invalid_without :summary
+   	  invalid_without :summary
    end
 
    
    
    it "has unique guid" do
    	 create(:podcast, guid: "haha")
-   	 expect(build(:podcast, guid: "haha")).to have(1).errors_on(:guid)
+   	 has_count_errors_on :guid, "haha", 1
    end
 
    it "is invalid without published" do
-   	  expect(build(:podcast, published: nil)).to have(2).errors_on(:published)
+   	  has_count_errors_on :published, nil, 2
    end
 
    it "is invalid if published is not date" do
-   	  expect(build(:podcast, published: '23-bla-ha')).to have(2).errors_on(:published)
+   	  has_count_errors_on :published, '23-bla-ha', 2
    end
 
    
    context "file_url field" do
    	  it "can not be empty" do
-   	    expect(build(:podcast, file_url: nil)).to have(2).errors_on(:file_url)
+   	   has_count_errors_on :file_url, nil, 2
       end
 
       it "accepts valid file_url" do
       	expect(create(:podcast, file_url: "http://www.google.com")).to be_valid
       end
 
-      it "accepts valid file_url" do
+      it "rejects invalid file_url" do
       	expect(build(:podcast, file_url: "ww-.bo-hoo.c")).to be_invalid
       end
    end
@@ -66,6 +66,7 @@ describe Podcast do
 
 
    describe "correctly sets and returns" do
+
    	  it "title" do
           set_and_get_attribute :title, "Episode 10"
    	  end
@@ -95,8 +96,13 @@ describe Podcast do
 end
 
 
-def podcast_invalid_without attribute
-	expect(build(:podcast, attribute => nil)).to have(1).errors_on(attribute)
+def has_count_errors_on attribute , value, n
+	expect(build(:podcast, attribute => value)).
+          to have(n).errors_on(attribute)
+end
+
+def invalid_without attribute
+   has_count_errors_on attribute , nil, 1
 end
 
 def set_and_get_attribute attribute, value
