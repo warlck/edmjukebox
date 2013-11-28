@@ -60,3 +60,16 @@ img.thumbnail {
 	width: 200px;
 	height: auto;
 }
+
+#artist_sidebar {
+	float: left;
+}
+
+div.podcasts {
+	margin-left:400px;
+	width:70%;
+	margin-top: 2em;
+}
+ul {
+	list-style: none;
+}
