@@ -19,6 +19,7 @@ feature "User viewing the artist show page" do
    scenario "seed list of artist's podcasts" do
       expect(page).to have_css 'ul#podcasts'
       expect(page).to have_css 'ul#podcasts li'
+      expect(page).to have_css 'ul#podcasts li', count: artist.podcasts.size
    end
 
 end
