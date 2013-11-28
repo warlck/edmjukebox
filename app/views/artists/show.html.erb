@@ -9,10 +9,6 @@
 
 <div class = 'podcasts' >
 	<ul id = 'podcasts' >
-		<% @artist.podcasts.each do |podcast| %>
-			<li class="podcast">
-				<audio src='<%= podcast.file_url%>' controls></audio>
-			</li>
-		<% end %>
+		<%= render @artist.podcasts %>
 	</ul>
 </div>
