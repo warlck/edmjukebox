@@ -13,7 +13,7 @@ module Concerns
 	         def artist_from_feed feed, feed_url
 	     	    unless feed == 0 
 		       	  create(
-			        channel_description: feed.itunes_summary,
+			        channel_description: feed.description,
 			       	channel_title: feed.title,
 			     	name: feed.itunes_author,
 			     	url: feed.url,
@@ -43,11 +43,6 @@ module Concerns
 	          end
 	        end
 	     end 
-
-
-    	def self.included(receiver)
-			receiver.extend         ClassMethods
-		end
 	
 	end
 end

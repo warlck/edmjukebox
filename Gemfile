@@ -12,6 +12,8 @@ gem 'newrelic_rpm'
 gem 'feedzirra'
 gem 'magic_encoding'
 gem "validates_timeliness", "~> 3.0.14"
+gem "bootstrap-sass"
+
 
 
 group :development, :test do

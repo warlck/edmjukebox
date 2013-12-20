@@ -34,6 +34,8 @@ GEM
       builder
       mime-types
       xml-simple
+    bootstrap-sass (3.0.2.1)
+      sass (~> 3.2)
     builder (3.0.4)
     capybara (1.1.2)
       mime-types (>= 1.16)
@@ -224,6 +226,7 @@ PLATFORMS
 
 DEPENDENCIES
   aws-s3
+  bootstrap-sass
   capybara (= 1.1.2)
   childprocess
   coffee-rails (~> 3.2.1)

@@ -1,0 +1,103 @@
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+       -o-border-radius: $radius;
+          border-radius: $radius;
+}
+
+@mixin box-shadow( $horiz : 0 , $vert : 0, $blur : 10px , $spread : 2px , $color : #ddd ){
+  -webkit-box-shadow: $horiz $vert $blur $spread $color;
+  -moz-box-shadow: $horiz $vert $blur $spread $color;
+  -o-box-shadow: $horiz $vert $blur $spread $color;
+   box-shadow: $horiz $vert $blur $spread $color;
+}
+
+
+.artists-panel {
+	background: #FFF;
+	position: relative;
+	border:  1px solid #ccc;
+	padding-top: 30px;
+	@include border-radius(10px);
+	@include box-shadow;
+
+	&:before {
+		position: absolute;
+	    z-index: -1;
+	    content: "";
+	    left: 1px;
+	    right: 1px;
+	    top: 1px;
+	    bottom: 1px;
+	    @include box-shadow (0, 0, 1px, 0, rgba(0,0,0, 0.6));
+	  
+	}
+}
+
+.recent-podcasts {
+	background: #FFF;
+	position: relative;
+	border:  1px solid #ccc;
+	padding-top: 20px;
+	@include border-radius(10px);
+	@include box-shadow;
+
+	&:before {
+		position: absolute;
+	    z-index: -1;
+	    content: "";
+	    left: 1px;
+	    right: 1px;
+	    top: 1px;
+	    bottom: 1px;
+	    @include box-shadow (0, 0, 1px, 0, rgba(0,0,0, 0.6));
+	  
+	}
+}
+
+
+
+.c-artist-img {
+	height: auto;
+	width: 100%;
+	border: 1px solid #aaa;
+	@include box-shadow(0,2px, 6px, 0, rgba(0,0,0, 0.4));
+
+}
+
+p.channel-title {
+	font-size: 0.75em;
+	font-weight: bold;
+	color: #000;
+	font-weight: bold;
+	margin-bottom: 2px;
+}
+
+.artist-name {
+	font-size: 0.75em;
+}
+
+li.artist  {
+	position: relative;
+	padding-bottom: 50px;
+
+	a { 
+		text-decoration:none;
+	}
+
+}
+
+
+ .artist-thumb {
+	margin-bottom: 15px;
+}
+
+.channel-info {
+	position:absolute;
+	top: 150px;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
