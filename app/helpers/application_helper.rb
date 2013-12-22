@@ -8,4 +8,12 @@ module ApplicationHelper
 	def download_url_for(song_key)
 		AWS::S3::S3Object.url_for(song_key, BUCKET, authenticated: false)
 	end
+
+	def hide_overflow(text) 
+         if text.length >= 40
+         	text.slice(0,30)+"..."
+         else
+         	text
+         end
+    end
 end

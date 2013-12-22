@@ -20,7 +20,11 @@
       <div class="col-md-9">
         <div class="artist-page ch-info">
           <h1><%= @artist.channel_title %></h1>
-          <h4 class="text-muted"><%= @artist.name %></h4>
+          <h4 class="text-muted"> <span>
+            <%= @artist.name %>
+            </span>
+            <span class="glyphicon glyphicon-chevron-right"></span>
+          </h4>
         </div>
        
       </div>
@@ -39,16 +43,16 @@
      <div class="podcasts-list">
       <div class="row podcast-labels">
           <div class="col-md-5 podcast-label">
-          <p>Name</p>
+          <p class="name">Name</p>
         </div>
         <div class="col-md-1 podcast-label">
-          <p>Time</p>
+          <p class="time">Time</p>
         </div>
         <div class="col-md-2 podcast-label">
-          <p>Released</p>
+          <p class="released">Released</p>
         </div>
         <div class="col-md-4 podcast-label">
-          <p>Description</p>
+          <p  class="description">Description</p>
         </div>
       </div>
 

@@ -32,6 +32,7 @@
     padding: 3px 1px 3px 2px; 
     &:hover {
         background:#92b2cf;
+        text-shadow: none;
         color:#fff;
         -moz-border-radius: 10px;
     }
@@ -67,6 +68,9 @@
         text-shadow: 0 2px 0px  #fff;
         font-weight: bold;
     }
+    h4 {
+        text-shadow: 0 1px 0px  #fff;
+    }
 
 }
 
@@ -96,5 +100,9 @@
 
 
 .podcasts-list {
+    text-shadow: 0 2px 0 #fff;
     padding-left: 30px; 
 }
+
+
+
