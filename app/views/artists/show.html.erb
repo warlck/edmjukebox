@@ -1,14 +1,46 @@
-<div id = 'artist_sidebar' class="sidebar">
-	 <img  data-image="artist_icon"src="<%= @artist.icon_url %>">
-	 <div class='links'>
-	 	<h4 >Links</h4>
-	 	<%= link_to 'Website', @artist.url %>
-	 	<%= link_to 'Report a Concern', '#' %>
-	 </div>
+
+<div class="row">
+    
+   <div class="col-md-12 light-gray">
+    <div class="row">
+      <div class="col-md-3">
+      <div id = 'artist_sidebar' class="sidebar">
+           <img  data-image="artist_icon" src="<%= @artist.icon_url %>">
+           <div id='links'>
+            <h4 >Links</h4>
+            <p>
+              <%= link_to 'Website', @artist.url %>
+            </p>
+            <p>
+            <%= link_to 'Report a Concern', '#' %>
+            </p>
+           </div>
+      </div>
+</div>
+      <div class="col-md-9">
+        <div class="artist-page ch-info">
+          <h1><%= @artist.channel_title %></h1>
+          <h4 class="text-muted"><%= @artist.name %></h4>
+        </div>
+       
+      </div>
+    </div>
+   	
+   </div>
+   <div class="col-md-12 dark-gray">
+    <div class="col-md-3"></div>
+    <div class="col-md-9">
+      <div class = 'podcasts' >
+        <ul id = 'podcasts' >
+          <%= render @artist.podcasts %>
+        </ul>
+     </div>
+
+    
+    </div>
+
+   </div>
+
 </div>
 
-<div class = 'podcasts' >
-	<ul id = 'podcasts' >
-		<%= render @artist.podcasts %>
-	</ul>
-</div>
+
