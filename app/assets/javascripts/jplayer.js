@@ -11,18 +11,33 @@
 // });
 
 $(function() {
-	$('.podcast').on('click', function(){
-		var $this = $(this);
-		$("#jquery_jplayer_1").jPlayer( "clearMedia" );
-		 $("#jquery_jplayer_1").jPlayer({
-        ready: function () {
-           $(this).jPlayer("setMedia", {
-                m4a: $this.data('link')
-            }).jPlayer("play"); // auto play
-        },
-        swfPath: ".",
-        supplied: "m4a"
-      }); 
+
+	var playerInstance
+
+	var player;
+
+	$('.podcast').on('click', function() {
+			var $this = $(this);
+			if(player == null) {
+					
+				player = $("#jquery_jplayer_1").jPlayer({
+			        ready: function () {
+			           $(this).jPlayer("setMedia", {
+			                m4a: $this.data('link')
+			            }).jPlayer("play"); // auto play
+			        },
+			        swfPath: ".",
+			        supplied: "m4a"
+		      }); 
+
+		} 
+		else {
+
+			player.jPlayer("setMedia", {
+	                m4a: $this.data('link')
+	            }).jPlayer("play"); // auto play
+		}
+		
 
 	console.log($this.data('link'))
 
