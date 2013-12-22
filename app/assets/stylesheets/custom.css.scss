@@ -20,9 +20,21 @@
 	border:  1px solid #ccc;
 	padding-top: 30px;
 	@include border-radius(10px);
-	@include box-shadow;
+	@include box-shadow();
     
 	
+}
+
+.artist-page {
+   @include box-shadow (0, 0, 10px, 2px, rgba(0,0,0, 0.6));
+   @include border-radius(10px);
+  .light-gray {
+   	  border-radius: 10px 10px 0 0;
+   }
+
+   .dark-gray {
+   	border-radius: 0px 0px 10px 10px;
+   }
 }
 
 .recent-podcasts {
@@ -97,6 +109,8 @@ li.artist  {
 	@include box-shadow(0,2px, 6px, 0, rgba(0,0,0, 0.4));
 }
 
-
+.jp-audio {
+	@include box-shadow(0, 2px, 2px, 1px,rgba(0,0,0, 0.6));
+}
 
 

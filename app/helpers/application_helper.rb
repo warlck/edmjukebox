@@ -11,7 +11,7 @@ module ApplicationHelper
 
 	def hide_overflow(text) 
          if text.length >= 40
-         	text.slice(0,30)+"..."
+         	text.slice(0,31)+"..."
          else
          	text
          end
