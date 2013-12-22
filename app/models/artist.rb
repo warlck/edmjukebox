@@ -19,6 +19,8 @@ class Artist < ActiveRecord::Base
   has_many :podcasts, dependent: :destroy
 
   after_create :add_entries
+
+  
   
 
   def self.create_artist feed_url

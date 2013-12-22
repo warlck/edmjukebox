@@ -2,12 +2,6 @@
     margin-top: 3em;
 }
 
-div.podcasts {
-    background-color:#eaeaea;
-	width: 660px;
-	margin: 0 auto;
-
-}
 
 #artist_sidebar img {
     border: 1px solid #ccc;
@@ -18,46 +12,47 @@ div.podcasts {
     position: absolute;
     top: 40px;
     z-index: 2;
-    left: 10px;
+    left: 20px;
 }
 
 
 
 #podcasts {	
     
-    border:1px solid #ccc;
     overflow:auto;
-    
-    border-radius:5px;
     list-style: none;
     overflow: hidden;
-    position: relative;
+    padding-left: 0px;
 }
 
 .podcast {
 	cursor:pointer;
-}
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #f5f5f5;
+    padding: 3px 1px 3px 2px; 
+    &:hover {
+        background:#92b2cf;
+        color:#fff;
+        -moz-border-radius: 10px;
+    }
 
-.podcast div
-{
-    color:#666666;
-}
-.podcast:hover{
-    background:#92b2cf;
-    color:#fff;
-    border-radius: 5px;
-}
-
-.podcast.odd{
-    background:#f1f1f1; 
-}
+    .odd {
+         background:#f1f1f1;
+    }
 
 
-.podcast.current{
-    color:#333;
-    background:#ccc;
-    border-bottom: 1px solid #d1d1d1;
+    .current{
+        color:#333;
+        background:#ccc;
+        border-bottom: 1px solid #d1d1d1;
+    }
+
+    p {
+        margin-bottom: 0;
+    }
 }
+
+
 
 
 .light-gray {
@@ -69,6 +64,7 @@ div.podcasts {
 .artist-page.ch-info {
     padding:  20px 30px 60px;
     h1 {
+        text-shadow: 0 2px 0px  #fff;
         font-weight: bold;
     }
 
@@ -76,10 +72,29 @@ div.podcasts {
 
 .dark-gray {
     background-color: #eaeaea;
-    border-top: 1px solid #d5d5d5; 
+    border-top: 1px solid #c5c5c    5; 
 }
 
 
 .ch-description {
     padding: 20px 30px 20px;
+     text-shadow: 0 2px 1px #fff;
+    h2 {
+
+    }
+}
+
+.podcast-labels {
+  
+    border-bottom: 1px solid #f5f5f5;
+    margin: 0px;
+
+    p {
+        margin-bottom: 5px;
+    }
+}
+
+
+.podcasts-list {
+    padding-left: 30px; 
 }

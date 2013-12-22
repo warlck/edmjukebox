@@ -14,7 +14,7 @@ validates :summary, presence: true
 validates :file_url, presence: true, format: {with: URI.regexp}
 validates_datetime :published
 
-
+default_scope  order("published DESC");
 
 
 

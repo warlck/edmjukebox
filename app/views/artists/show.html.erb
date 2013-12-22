@@ -34,12 +34,29 @@
         <h2>Decription</h2>
         <p><%= @artist.channel_description %></p>
       </div>
-     
+
+
+     <div class="podcasts-list">
+      <div class="row podcast-labels">
+          <div class="col-md-5 podcast-label">
+          <p>Name</p>
+        </div>
+        <div class="col-md-1 podcast-label">
+          <p>Time</p>
+        </div>
+        <div class="col-md-2 podcast-label">
+          <p>Released</p>
+        </div>
+        <div class="col-md-4 podcast-label">
+          <p>Description</p>
+        </div>
+      </div>
+
       <ul id = 'podcasts' >
         <%= render @artist.podcasts %>
       </ul>
+     </div>
      
-
     
     </div>
 
