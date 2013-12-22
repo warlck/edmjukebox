@@ -92,24 +92,6 @@ li.artist  {
 	}
 }
 
-.light-gray {
-	background-color: #f4f4f4;
-	border-bottom: 1px solid #fafafa;
-
-}
-
-.artist-page.ch-info {
-    padding:  20px 30px 60px;
-    h1 {
-    	font-weight: bold;
-    }
-
-}
-
-.dark-gray {
-	background-color: #eaeaea;
-	border-top: 1px solid #d5d5d5; 
-}
 
 #artist_sidebar img {
 	@include box-shadow(0,2px, 6px, 0, rgba(0,0,0, 0.4));
