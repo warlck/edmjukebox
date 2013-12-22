@@ -9,3 +9,23 @@
 //         supplied: "m4a"
 //       }); 
 // });
+
+$(function() {
+	$('.podcast').on('click', function(){
+		var $this = $(this);
+		$("#jquery_jplayer_1").jPlayer( "clearMedia" );
+		 $("#jquery_jplayer_1").jPlayer({
+        ready: function () {
+           $(this).jPlayer("setMedia", {
+                m4a: $this.data('link')
+            }).jPlayer("play"); // auto play
+        },
+        swfPath: ".",
+        supplied: "m4a"
+      }); 
+
+	console.log($this.data('link'))
+
+	});
+
+});
