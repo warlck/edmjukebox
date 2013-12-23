@@ -6,7 +6,7 @@ class Artist < ActiveRecord::Base
   attr_accessible  :channel_title, :channel_description, 
                   :icon_url, :name, :url, :feed_url, :image
 
-  has_attached_file :image, storage:  styles: {
+  has_attached_file :image, styles: {
     thumb: '145x145'
   }
 

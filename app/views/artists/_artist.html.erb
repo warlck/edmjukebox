@@ -1,6 +1,6 @@
 
 <a href="<%= artist_path(artist)%>">
-	 <img  class="c-artist-img"src="<%= artist.icon_url %>">
+	 <img  class="c-artist-img"src="<%= artist.image.url(:thumb)%>">
 </a>
 <div class="channel-info">
 	<a href="<%= artist_path(artist)%>">
