@@ -5,7 +5,7 @@
       <div class="row">
         <div class="col-md-3">
         <div id = 'artist_sidebar' class="sidebar">
-             <img  data-image="artist_icon" src="<%= @artist.icon_url %>">
+             <img  data-image="artist_image" src="<%= @artist.image.url(:medium) %>">
              <div id='links'>
               <h4 >Links</h4>
               <p>
@@ -42,13 +42,13 @@
 
        <div class="podcasts-list">
         <div class="row podcast-labels">
-            <div class="col-md-5 podcast-label">
+            <div class="col-md-4 podcast-label">
             <p class="name">Name</p>
           </div>
           <div class="col-md-1 podcast-label">
             <p class="time">Time</p>
           </div>
-          <div class="col-md-2 podcast-label">
+          <div class="col-md-3 podcast-label">
             <p class="released">Released</p>
           </div>
           <div class="col-md-4 podcast-label">

@@ -7,7 +7,10 @@ class Artist < ActiveRecord::Base
                    :name, :url, :feed_url, :image
 
   has_attached_file :image, styles: {
-    thumb: '145x145'
+    thumb: '145x145',
+    medium: '230x230',
+    icon: '60X60',
+    small: '100x100'
   }
 
   

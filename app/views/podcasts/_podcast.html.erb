@@ -1,6 +1,6 @@
 <li >
 	<div class="row podcast" data-link="<%= podcast.file_url%>">
-			<div class="col-md-5 ">
+			<div class="col-md-4 ">
 				<p class="name">
 					<%= hide_overflow(podcast.title) %>
 				</p>
@@ -8,8 +8,8 @@
 			<div class="col-md-1">
 				<p class="duration"><%= podcast.duration %></p>
 			</div>
-			<div class="col-md-2">
-				<p class="published"><%= podcast.published %></p>
+			<div class="col-md-3">
+				<p class="published"><%= format_date(podcast.published) %></p>
 			</div>
 			<div class="col-md-4 ">
                 <p>
