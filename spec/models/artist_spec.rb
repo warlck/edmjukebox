@@ -4,7 +4,7 @@ require 'spec_helper'
 
 
 # Without running callbacks
-describe Artist do
+describe Artist , skip: true do
 
   before :each do 
     Artist.skip_callback(:create, :after, :add_entries)
