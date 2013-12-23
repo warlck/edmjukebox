@@ -6,13 +6,14 @@ gem 'rails', '3.2.13'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'pg'
-gem 'aws-s3', :require => 'aws/s3' 
+gem 'pg' 
 gem 'newrelic_rpm'
 gem 'feedzirra'
 gem 'magic_encoding'
 gem "validates_timeliness", "~> 3.0.14"
 gem "bootstrap-sass"
+gem "paperclip", "~> 3.0"
+gem 'aws-sdk', '~> 1.5.7'
 
 
 

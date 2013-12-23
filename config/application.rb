@@ -71,11 +71,8 @@ module Edmplayer
 end
 
 
-AWS::S3::Base.establish_connection!(  
-    :access_key_id     => 'AKIAJP3MLHDCMKIURHGQ',  
-    :secret_access_key => 'dCAmwXttsA3CuG0VJVY5dg4vcbM636yt8VQ55NhF'
-) 
 
-AWS::S3::DEFAULT_HOST.replace "s3-ap-southeast-1.amazonaws.com"
+
+HOST = "s3-ap-southeast-1.amazonaws.com"
 
 BUCKET = 'edmstorage'

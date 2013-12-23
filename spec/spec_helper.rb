@@ -1,6 +1,7 @@
 # -*- encoding : utf-8 -*-
 require 'rubygems'
 require 'spork'
+require 'paperclip/matchers'
 #uncomment the following line to use spork with the debugger
 #require 'spork/ext/ruby-debug'
 
@@ -44,6 +45,12 @@ Spork.prefork do
     #     --seed 1234
     config.order = "random"
     config.include FactoryGirl::Syntax::Methods
+
+    # Including paperclips shoulda matchers
+    # for testing file attachment in rspec
+
+    config.include Paperclip::Shoulda::Matchers
+
   end
 
 

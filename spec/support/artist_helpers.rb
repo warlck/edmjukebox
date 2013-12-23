@@ -8,9 +8,9 @@ module ArtistHelpers
 
   def local_feed_url valid
      if valid
-        "file://#{Dir.pwd}/spec/avicii.rss"
+        "file://#{Rails.root}/spec/avicii.rss"
      else
-        "file://#{Dir.pwd}/spec/empty.rss"
+        "file://#{Rails.root}/spec/empty.rss"
      end
   end
 

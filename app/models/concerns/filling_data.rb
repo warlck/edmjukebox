@@ -13,12 +13,13 @@ module Concerns
 	         def artist_from_feed feed, feed_url
 	     	    unless feed == 0 
 		       	  create(
-			        channel_description: feed.description,
+			        channel_description: feed.itunes_summary,
 			       	channel_title: feed.title,
 			     	name: feed.itunes_author,
 			     	url: feed.url,
 			     	icon_url: feed.itunes_image,
-		            feed_url: feed_url
+		            feed_url: feed_url,
+		            image: open(feed.itunes_image)
 		 	    )
 		       end
 	         end       

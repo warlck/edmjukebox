@@ -1,6 +1,7 @@
 # -*- encoding : utf-8 -*-
 require 'spec_helper'
 
+
 # Without running callbacks
 describe Artist do
 
@@ -25,6 +26,7 @@ describe Artist do
       it { should respond_to :url }
       it { should respond_to :feed_url }
       it { should respond_to :podcasts } 
+      it { should respond_to :image }
 
     end
 
@@ -33,6 +35,10 @@ describe Artist do
             " channel_decription, icon_url, url provided " do
          artist = create(:artist)
          expect(artist).to be_valid
+    end
+
+    it "is invalid without image provided" do
+      invalid_without_attribute "image"
     end
 
     it "is invalid without name" do
@@ -161,6 +167,25 @@ describe Artist do
        expect(Podcast.all).to be_empty
     end
   end
+
+  
+  describe "image attachment" do
+    let(:artist) { create(:artist) }
+    subject { artist }
+
+    it { should have_attached_file(:image)}
+    it { should validate_attachment_presence(:image)}
+    it {should validate_attachment_content_type(:image).
+        allowing('image/png', 'image/jpg', 'image/jpeg', 'image/gif')}
+    it { should validate_attachment_size(:image).less_than(5.megabytes) }
+
+    context "styles" do
+      it "are defined" do
+         expect(artist.image).to respond_to(:url)
+      end
+    end
+  end
+
 end
 
 
@@ -177,4 +202,5 @@ describe Artist do
       end
   end
 end
+
 

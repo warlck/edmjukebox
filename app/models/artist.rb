@@ -1,11 +1,15 @@
 # -*- encoding : utf-8 -*-
 class Artist < ActiveRecord::Base
-
+ 
   include Concerns::FillingData
 
   attr_accessible  :channel_title, :channel_description, 
-                  :icon_url, :name, :url, :feed_url
+                  :icon_url, :name, :url, :feed_url, :image
 
+  has_attached_file :image, styles: {
+    thumb: '140x140'
+  }
+  has_many :podcasts, dependent: :destroy
 
   
   validates :name, presence: true
@@ -14,12 +18,15 @@ class Artist < ActiveRecord::Base
   validates :url, presence: true, format: { with: URI.regexp }
   validates :icon_url, presence: true, format: { with: URI.regexp}
   validates :feed_url, presence: true
+  validates_attachment :image,  presence: true,
+             content_type: { content_type: ['image/jpg', 'image/jpeg', 'image/png', 'image/gif'] },
+             size: { less_than: 5.megabytes  }
 
-  
-  has_many :podcasts, dependent: :destroy
 
   after_create :add_entries
 
+
+ 
   
   
 
