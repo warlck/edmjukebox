@@ -6,7 +6,7 @@ class Artist < ActiveRecord::Base
   attr_accessible  :channel_title, :channel_description, 
                   :icon_url, :name, :url, :feed_url, :image
 
-  has_attached_file :image, styles: {
+  has_attached_file :image, depended: destroy, styles: {
     thumb: '140x140'
   }
   has_many :podcasts, dependent: :destroy
