@@ -1,3 +1,4 @@
+
 # -*- encoding : utf-8 -*-
 require 'spec_helper'
 
@@ -181,6 +182,10 @@ describe Artist do
       it "are defined" do
          expect(artist.image).to respond_to(:url)
       end
+    end
+
+    context "uploaded to S3" do
+      
     end
   end
 

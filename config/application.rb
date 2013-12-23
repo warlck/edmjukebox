@@ -72,7 +72,3 @@ end
 
 
 
-
-HOST = "s3-ap-southeast-1.amazonaws.com"
-
-BUCKET = 'edmstorage'
