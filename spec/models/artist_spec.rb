@@ -23,7 +23,6 @@ describe Artist do
       it { should respond_to :name}
       it { should respond_to :channel_title}
       it { should respond_to :channel_description }
-      it { should respond_to :icon_url }
       it { should respond_to :url }
       it { should respond_to :feed_url }
       it { should respond_to :podcasts } 
@@ -72,19 +71,14 @@ describe Artist do
       end
     end
 
-    context "icon_url field" do
-      it "can not be empty" do
-        expect(build(:artist, icon_url: nil)).not_to be_valid
-      end
 
+    
       it "accepts valid urls" do 
         expect(create(:artist)).to be_valid
       end
 
-      it "rejects invalid urls" do
-        expect(build(:artist, icon_url: "wwi.boogie-.co")).not_to be_valid
-      end
-    end
+  
+ 
 
     
 
@@ -118,9 +112,6 @@ describe Artist do
                expect(artist.channel_description).to eq avicii(:channel_description)
             end
 
-            it "sets corrent icon url" do
-               expect(artist.icon_url).to eq avicii(:icon_url)
-            end
 
             it "sets corrent  url" do
                expect(artist.url).to eq avicii(:url)

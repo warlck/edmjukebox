@@ -17,7 +17,6 @@ module Concerns
 			       	channel_title: feed.title,
 			     	name: feed.itunes_author,
 			     	url: feed.url,
-			     	icon_url: feed.itunes_image,
 		            feed_url: feed_url,
 		            image: open(feed.itunes_image)
 		 	    )
