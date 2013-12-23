@@ -37,9 +37,7 @@ describe Artist do
          expect(artist).to be_valid
     end
 
-    it "is invalid without image provided" do
-      invalid_without_attribute "image"
-    end
+    
 
     it "is invalid without name" do
       invalid_without_attribute "name"
@@ -174,7 +172,7 @@ describe Artist do
     subject { artist }
 
     it { should have_attached_file(:image)}
-    it { should validate_attachment_presence(:image)}
+    #it { should validate_attachment_presence(:image)}
     it {should validate_attachment_content_type(:image).
         allowing('image/png', 'image/jpg', 'image/jpeg', 'image/gif')}
     it { should validate_attachment_size(:image).less_than(5.megabytes) }

@@ -12,8 +12,8 @@ gem 'feedzirra'
 gem 'magic_encoding'
 gem "validates_timeliness", "~> 3.0.14"
 gem "bootstrap-sass"
-gem "paperclip", "~> 3.0"
-gem 'aws-sdk', '~> 1.5.7'
+gem "paperclip", '~> 3.5.0'
+gem 'aws-sdk', '~> 1.6.0'
 
 
 
@@ -34,6 +34,7 @@ group :test do
 	gem 'cucumber-rails', :require => false
 	gem 'database_cleaner'
 	gem 'launchy'
+
 end
 
 # Gems used only for assets and not required
