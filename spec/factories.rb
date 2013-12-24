@@ -6,7 +6,9 @@ FactoryGirl.define do
 		channel_description "The best music ever"
 		url 'http://www.aoki.com'
 		feed_url "file://#{Rails.root}/spec/avicii.rss"
-		image File.new("#{Rails.root}/spec/AVICII-LEVELS-THUMBNAIL-JUNE-2011.jpg",'r')
+		image_file_name "test.jpg"
+		image_content_type "image/jpeg"
+		image_file_size "140000"
 	end
 
 	factory :podcast do 

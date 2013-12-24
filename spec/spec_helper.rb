@@ -77,9 +77,6 @@ Spork.prefork do
     end
 
 
-    # adding methods for stubbing out paperclip
-
-     config.extend PaperclipMacros
 
   end
 

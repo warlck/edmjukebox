@@ -4,7 +4,7 @@ require 'spec_helper'
 
 
 # Without running callbacks
-describe Artist , skip: true do
+describe Artist  do
 
   before :each do 
     Artist.skip_callback(:create, :after, :add_entries)
@@ -16,7 +16,7 @@ describe Artist , skip: true do
 
 
     describe "instance" do
-      stub_paperclip Artist
+    
       let(:artist) { create(:artist)  }
 
       subject { artist}
@@ -159,7 +159,25 @@ describe Artist , skip: true do
     end
   end
 
-  
+end
+
+
+#with callbacks turned on
+describe Artist do
+  describe "add_entries callback" do     
+      it "creates associated podcasts" do
+           artist = Artist.create_artist(local_feed_url(true))
+           expect(artist.podcasts.size).to eq 2
+      end
+
+      it "changes the number of Podcast objects" do
+         expect{create(:artist)}.to change(Podcast, :count).by(2)
+      end
+  end
+end
+
+
+describe Artist do
   describe "image attachment" do
     let(:artist) { create(:artist) }
     subject { artist }
@@ -180,22 +198,4 @@ describe Artist , skip: true do
       
     end
   end
-
 end
-
-
-#with callbacks turned on
-describe Artist do
-  describe "add_entries callback" do     
-      it "creates associated podcasts" do
-           artist = Artist.create_artist(local_feed_url(true))
-           expect(artist.podcasts.size).to eq 2
-      end
-
-      it "changes the number of Podcast objects" do
-         expect{create(:artist)}.to change(Podcast, :count).by(2)
-      end
-  end
-end
-
-
