@@ -16,6 +16,7 @@ describe Artist do
 
 
     describe "instance" do
+      stub_paperclip Artist
       let(:artist) { create(:artist)  }
 
       subject { artist}
@@ -23,7 +24,6 @@ describe Artist do
       it { should respond_to :name}
       it { should respond_to :channel_title}
       it { should respond_to :channel_description }
-      it { should respond_to :icon_url }
       it { should respond_to :url }
       it { should respond_to :feed_url }
       it { should respond_to :podcasts } 

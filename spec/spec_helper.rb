@@ -76,6 +76,11 @@ Spork.prefork do
       `rm -rf #{"#{Rails.root}/public/system"}`
     end
 
+
+    # adding methods for stubbing out paperclip
+
+     config.extend PaperclipMacros
+
   end
 
 
