@@ -17,7 +17,7 @@ describe Artist  do
 
     describe "instance" do
     
-      let(:artist) { create(:artist)  }
+      let(:artist) { build_stubbed(:artist)  }
 
       subject { artist}
 
@@ -34,7 +34,7 @@ describe Artist  do
 
     it "is valid with name, channel_title" + 
             " channel_decription, icon_url, url provided " do
-         artist = create(:artist)
+         artist = build_stubbed(:artist)
          expect(artist).to be_valid
     end
 
@@ -60,22 +60,22 @@ describe Artist  do
 
     context "url field" do
       it "can not be empty" do
-        expect(build(:artist, url: nil)).not_to be_valid
+        expect(build_stubbed(:artist, url: nil)).not_to be_valid
       end
 
       it "accepts valid urls" do 
-        expect(create(:artist, url: "http://www.google.com" )).to be_valid
+        expect(build_stubbed(:artist, url: "http://www.google.com" )).to be_valid
       end
 
       it "rejects invalid urls" do
-        expect(build(:artist, url: "wwi.boogie-.co")).not_to be_valid
+        expect(build_stubbed(:artist, url: "wwi.boogie-.co")).not_to be_valid
       end
     end
 
 
     
       it "accepts valid urls" do 
-        expect(create(:artist)).to be_valid
+        expect(build_stubbed(:artist)).to be_valid
       end
 
   

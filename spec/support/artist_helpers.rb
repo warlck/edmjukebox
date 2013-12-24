@@ -2,7 +2,7 @@
 module ArtistHelpers
 
   def invalid_without_attribute attribute
-    expect(build(:artist, attribute => nil)).
+    expect(build_stubbed(:artist, attribute => nil)).
           to have(1).errors_on(attribute)
   end
 
@@ -12,6 +12,10 @@ module ArtistHelpers
      else
         "file://#{Rails.root}/spec/empty.rss"
      end
+  end
+
+  def hardwell_feed
+    "file://#{Rails.root}/spec/"
   end
 
 
