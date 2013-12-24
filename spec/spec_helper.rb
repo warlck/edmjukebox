@@ -3,6 +3,7 @@ require 'rubygems'
 require 'spork'
 require 'paperclip/matchers'
 require 'simplecov'
+
 SimpleCov.start 'rails'
 #uncomment the following line to use spork with the debugger
 #require 'spork/ext/ruby-debug'
@@ -78,6 +79,15 @@ Spork.prefork do
       `rm -rf #{"#{Rails.root}/public/system"}`
     end
 
+
+  config.treat_symbols_as_metadata_keys_with_true_values = true
+  config.filter_run focus: true
+  config.run_all_when_everything_filtered = true
+
+  config.filter_run_excluding :slow unless ENV["SLOW_SPECS"]
+
+  config.before(:all) { DeferredGarbageCollection.start }
+  config.after(:all) { DeferredGarbageCollection.reconsider }
 
 
   end

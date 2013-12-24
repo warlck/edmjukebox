@@ -23,9 +23,9 @@ module ArtistHelpers
     return avicii[field]
   end      
 
-  def changes_artist_count_by feed_url, n
-    expect {Artist.create_artist(feed_url)}.
-    to change(Artist, :count).by(n)     
+  def changes_artist_count_by attrs
+    expect {Artist.create_artist(attrs[:given])}.
+    to change(Artist, :count).by(attrs[:count])     
   end
 
 end

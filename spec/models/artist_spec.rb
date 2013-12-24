@@ -81,9 +81,7 @@ describe Artist  do
   
  
 
-    
-
-    describe ".create_artist" do
+    describe "#create_artist" , :slow do
       it "is defined as class method" do
           expect(Artist).to respond_to(:create_artist)
       end
@@ -91,17 +89,23 @@ describe Artist  do
       it "expects an argument" do
         expect{Artist.create_artist }.to raise_error(ArgumentError)
       end
-        
+               
 
-      context "given valid feed_url address" do
+      context "given  feed_url address" do
           it "creates new artist for valid feed" do
-              changes_artist_count_by local_feed_url(true), 1
+              changes_artist_count_by count: 1, given: local_feed_url(true)
           end 
+
+          it "does not create new artist for invalid feed" do
+            changes_artist_count_by  count: 0, given: local_feed_url(false) 
+          end
+
 
          context "with valid feed" do
             let(:artist) {Artist.create_artist(local_feed_url(true)) }
 
             it "sets correct artist name" do
+               # debugger
                 expect(artist.name).to eq avicii(:name)
             end
 
@@ -123,14 +127,11 @@ describe Artist  do
             end          
          end
           
-          it "does not create new artist for invalid feed" do
-             changes_artist_count_by local_feed_url(false), 0 
-          end
       end
 
       context "given invalid feed_url address" do
         it "does not create new aritst" do
-               changes_artist_count_by "invalid feed", 0
+               changes_artist_count_by count: 0, given: "invalid feed"
         end
       end
     end
@@ -159,27 +160,8 @@ describe Artist  do
     end
   end
 
-end
-
-
-#with callbacks turned on
-describe Artist do
-  describe "add_entries callback" do     
-      it "creates associated podcasts" do
-           artist = Artist.create_artist(local_feed_url(true))
-           expect(artist.podcasts.size).to eq 2
-      end
-
-      it "changes the number of Podcast objects" do
-         expect{create(:artist)}.to change(Podcast, :count).by(2)
-      end
-  end
-end
-
-
-describe Artist do
   describe "image attachment" do
-    let(:artist) { create(:artist) }
+    let(:artist) { Artist.create_artist local_feed_url(true) }
     subject { artist }
 
     it { should have_attached_file(:image)}
@@ -198,4 +180,21 @@ describe Artist do
       
     end
   end
+
 end
+
+
+#with callbacks turned on
+describe Artist do
+  describe "add_entries callback" do     
+      it "creates associated podcasts" do
+           artist = create(:artist)
+           expect(artist.podcasts.size).to eq 2
+      end
+
+      it "changes the number of Podcast objects" do
+         expect{create(:artist)}.to change(Podcast, :count).by(2)
+      end
+  end
+end
+

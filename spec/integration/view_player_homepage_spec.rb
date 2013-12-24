@@ -3,6 +3,16 @@ require 'spec_helper'
 
 
 feature 'User viewing player homepage' do
+
+  before :each do 
+    Artist.skip_callback(:create, :after, :add_entries)
+  end
+
+  after :each do
+    Artist.set_callback(:create, :after, :add_entries)
+  end
+
+  
 	let!(:artist) { create(:artist) }
 	let!(:artists) { [create(:artist, name: 'Tiesto'),
 			       create(:artist, name: 'hardwell')]}
