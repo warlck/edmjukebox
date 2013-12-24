@@ -9,7 +9,7 @@ feature "User viewing the artist show page" do
    scenario "sees sidebar with artist particulars" do
 
      expect(page).to have_css 'div#artist_sidebar'
-     expect(page).to have_css "img[data-image='artist_icon']", src: artist.icon_url
+     expect(page).to have_css "img[data-image='artist_image']", src: artist.image.url(:medium)
      expect(page).to have_css "a[href='#{artist.url}']", text: 'Website'
      expect(page).to have_css "a", text: "Report a Concern"  
 

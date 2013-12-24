@@ -17,7 +17,6 @@ module Concerns
 			       	channel_title: feed.title,
 			     	name: feed.itunes_author,
 			     	url: feed.url,
-			     	icon_url: feed.itunes_image,
 		            feed_url: feed_url,
 		            image: open(feed.itunes_image)
 		 	    )
@@ -37,7 +36,7 @@ module Concerns
 	              title: entry.title,
 	              summary: entry.itunes_summary,
 	              file_url: entry.enclosure_url,
-	              guid: entry.id,
+	              guid: entry.id || entry.guid,
 	              duration: entry.itunes_duration,
 	              published: entry.published
 	            )

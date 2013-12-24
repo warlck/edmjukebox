@@ -40,7 +40,7 @@ def shows_correct_number_of_artists count
 end
 
 def shows_artist_details artist
-	expect(page).to have_css "img[src='#{artist.icon_url}']"
+	expect(page).to have_css "img[src='#{artist.image.url(:thumb)}']"
 	expect(page).to have_css "p.artist_name", text: "#{artist.name}"
 	expect(page).to have_css "p.channel_title", text: "#{artist.channel_title}"
 end

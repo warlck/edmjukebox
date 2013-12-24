@@ -4,10 +4,13 @@ class Artist < ActiveRecord::Base
   include Concerns::FillingData
 
   attr_accessible  :channel_title, :channel_description, 
-                  :icon_url, :name, :url, :feed_url, :image
+                   :name, :url, :feed_url, :image
 
   has_attached_file :image, styles: {
-    thumb: '145x145'
+    thumb: '145x145',
+    medium: '230x230',
+    icon: '60X60',
+    small: '100x100'
   }
 
   
@@ -18,7 +21,6 @@ class Artist < ActiveRecord::Base
   validates :channel_description, presence: true
   validates :channel_title, presence: true
   validates :url, presence: true, format: { with: URI.regexp }
-  validates :icon_url, presence: true, format: { with: URI.regexp}
   validates :feed_url, presence: true
 
 
