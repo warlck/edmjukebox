@@ -21,7 +21,7 @@ module Concerns
 		            image: open(feed.itunes_image)
 		 	    )
 		       end
-	         end       
+	         end    
 		end
 		
 
@@ -44,7 +44,7 @@ module Concerns
 	          end
 	        end
 	     end
-	
+
 	end
 end
 
