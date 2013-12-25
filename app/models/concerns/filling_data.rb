@@ -13,7 +13,7 @@ module Concerns
 	         def artist_from_feed feed, feed_url
 	     	    unless feed == 0 
 		       	  create(
-			        channel_description: feed.itunes_summary,
+			        channel_description: feed.itunes_summary ,
 			       	channel_title: feed.title,
 			     	name: feed.itunes_author,
 			     	url: feed.url,
@@ -27,6 +27,7 @@ module Concerns
 
 		#Concern instance methods	
 
+
 		private
 	     def add_entries  
 	       feed = Artist.get_feed_data(self.feed_url)
@@ -34,15 +35,15 @@ module Concerns
 	          unless Podcast.exists?( guid: entry.id)
 	            podcasts << Podcast.create(
 	              title: entry.title,
-	              summary: entry.itunes_summary,
+	              summary: entry.itunes_summary || entry.summary,
 	              file_url: entry.enclosure_url,
-	              guid: entry.id || entry.guid,
+	              guid: entry.guid || entry.id,
 	              duration: entry.itunes_duration,
 	              published: entry.published
 	            )
 	          end
 	        end
-	     end 
+	     end
 	
 	end
 end
