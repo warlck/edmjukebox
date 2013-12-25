@@ -22,7 +22,6 @@ $(function() {
 					
 				player = $("#jquery_jplayer_1").jPlayer({
 			        ready: function () {
-			           $(this).jPlayer("setMedia", {
 			                m4a: $this.data('link')
 			            }).jPlayer("play"); // auto play
 			        },

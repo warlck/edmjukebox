@@ -13,9 +13,9 @@ feature 'User viewing player homepage' do
   end
 
   
-	let!(:artist) { create(:artist) }
 	let!(:artists) { [create(:artist, name: 'Tiesto'),
 			       create(:artist, name: 'hardwell')]}
+    let!(:artist) { artists[0] }
 	before :each do
 	   visit root_path
 	end
@@ -25,7 +25,7 @@ feature 'User viewing player homepage' do
 	end
 
 	scenario 'sees list of artists' do
-		shows_correct_number_of_artists 3
+		shows_correct_number_of_artists 2
 	end
 
 	scenario 'sees artist details' do
