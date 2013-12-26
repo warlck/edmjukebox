@@ -14,8 +14,16 @@ module ArtistHelpers
      end
   end
 
-  def hardwell_feed
-    "file://#{Rails.root}/spec/"
+  def hysteria_feed
+    "file://#{Rails.root}/spec/Hysteria Radio.xml"
+  end
+
+  def tiesto_feed
+    "file://#{Rails.root}/spec/tiesto.xml"
+  end
+
+  def markus_feed
+    "file://#{Rails.root}/spec/markus.xml"
   end
 
 

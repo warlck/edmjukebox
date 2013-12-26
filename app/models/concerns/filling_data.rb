@@ -2,6 +2,51 @@ module Concerns
 	module FillingData
 		extend ActiveSupport::Concern
 
+		class ItunesFeed
+			class_attribute :resource
+			def initialize address
+				@address = address
+				@doc = init_doc 
+				@doc.remove_namespaces!
+			end
+
+
+
+			def summary 
+				attr "summary"
+			end
+
+			def author
+				attr "author"
+			end
+
+			def image
+				image = attr "image/@href"
+				image = image.empty? ? attr("image/url") : image
+			end
+
+			private 
+
+			def attr attribute 
+				@doc.xpath("//channel/#{attribute}").inner_text
+			end
+
+			def init_doc 
+				if resource == :filesystem
+					# remove "file://" part
+					@address = @address.slice(6..-1) 
+					@doc = Nokogiri::XML(File.open(@address))
+				elsif resource == :web || resource.nil?
+					@doc = Nokogiri::XML(open(@address))
+				end
+			end
+
+						
+
+		end
+
+
+
 		module ClassMethods
 
 	       def get_feed_data feed_url
@@ -11,18 +56,24 @@ module Concerns
 
 		   private
 	         def artist_from_feed feed, feed_url
+	         	
 	     	    unless feed == 0 
+	     	    itunes_feed = ItunesFeed.new feed_url
+
 		       	  create(
-			        channel_description: feed.itunes_summary ,
+			        channel_description: itunes_feed.summary,
 			       	channel_title: feed.title,
-			     	name: feed.itunes_author,
+			     	name: itunes_feed.author,
 			     	url: feed.url,
 		            feed_url: feed_url,
-		            image: open(feed.itunes_image)
+		            image: open(itunes_feed.image)
 		 	    )
 		       end
 	         end    
 		end
+
+
+
 		
 
 		#Concern instance methods	
@@ -31,20 +82,42 @@ module Concerns
 		private
 	     def add_entries  
 	       feed = Artist.get_feed_data(self.feed_url)
+	       #debugger
 	        feed.entries.each do |entry|
-	          unless Podcast.exists?( guid: entry.id)
+	          unless Podcast.exists?( guid: guid(entry))
 	            podcasts << Podcast.create(
 	              title: entry.title,
-	              summary: entry.itunes_summary || entry.summary,
-	              file_url: entry.enclosure_url,
-	              guid: entry.guid || entry.id,
-	              duration: entry.itunes_duration,
+	              summary: entry.summary || entry.itunes_summary,
+	              file_url: enclosure(entry),
+	              guid: guid(entry),
+	              duration: duration(entry),
 	              published: entry.published
 	            )
 	          end
 	        end
 	     end
 
+	     def enclosure entry
+	        if entry.respond_to? :enclosure_url and !entry.enclosure_url.nil?
+	        	entry.enclosure_url
+	        elsif entry.respond_to? :url and !entry.url.nil?
+	        	entry.url
+	        else
+	        	entry.image
+	        end
+	    end
+
+	    def guid entry
+	    	entry.title
+    	end
+
+    	def duration entry
+    		if entry.respond_to? :itunes_duration
+    			entry.itunes_duration
+    		else
+    			"1:00:00"
+    		end
+    	end
 	end
 end
 

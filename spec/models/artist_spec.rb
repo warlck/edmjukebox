@@ -100,6 +100,23 @@ describe Artist  do
             changes_artist_count_by  count: 0, given: local_feed_url(false) 
           end
 
+       
+
+
+          context "creates artist from valid but ill formed feed" do
+             it "of hyteria radio" do
+                changes_artist_count_by count: 1, given: hysteria_feed
+             end
+
+             it "of tiesto" do
+                changes_artist_count_by count: 1, given: tiesto_feed
+             end
+
+             it "of Markus Schultz feed" do
+                 changes_artist_count_by count: 1, given: markus_feed
+             end
+          end
+
 
          context "with valid feed" do
             let(:artist) {Artist.create_artist(local_feed_url(true)) }
@@ -161,10 +178,13 @@ describe Artist  do
   end
 
   describe "image attachment" do
+    
     let(:artist) { Artist.create_artist local_feed_url(true) }
+
     subject { artist }
 
     it { should have_attached_file(:image)}
+    
     #it { should validate_attachment_presence(:image)}
     it {should validate_attachment_content_type(:image).
         allowing('image/png', 'image/jpg', 'image/jpeg', 'image/gif')}

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:feedburner="http://rssnamespace.org/feedburner/ext/1.0" version="2.0">
+<channel>
+<title>Tiësto`s Club Life Podcast</title>
+<itunes:author>Tiësto</itunes:author>
+<link>http://club.bnn.nl</link> 
+<itunes:explicit>no</itunes:explicit>
+<itunes:subtitle />
+<itunes:owner>
+	<itunes:name>BNN</itunes:name>
+	<itunes:email>bnn-info@bnn.nl</itunes:email>
+</itunes:owner>
+<image>
+	<url>http://www.bnn.nl/data/images/tiesto.jpg</url>
+	<title>Tiësto`s Club Life Podcast</title>
+	<link>http://club.bnn.nl</link>
+</image>
+<itunes:link rel="image" type="video/jpeg" href="http://www.bnn.nl/data/images/tiesto.jpg">BNN: Tiësto`s club life podcast</itunes:link>
+<itunes:category text="Music" />
+<itunes:summary>Can't get enough of the radioshow Tiësto's Club Life? Then subscribe to this podcast and get a weekly update on the favourite tracks of Tiësto! For more info about Tiësto please visit www.tiesto.com or club.bnn.nl</itunes:summary>
+<description>Can't get enough of the radioshow Tiësto's Club Life? Then subscribe to this podcast and get a weekly update on the favourite tracks of Tiësto! For more info about Tiësto please visit www.tiesto.com or club.bnn.nl</description> 
+<language>NL</language> 
+<webmaster>bnn-info@bnn.nl</webmaster> 
+ <lastBuildDate>Mon, 23 Dec 2013 13:00:00 GMT</lastBuildDate> 
+                <atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" rel="self" type="application/rss+xml" href="http://feeds.feedburner.com/tiestos_club_life" /><feedburner:info uri="tiestos_club_life" /><atom10:link xmlns:atom10="http://www.w3.org/2005/Atom" rel="hub" href="http://pubsubhubbub.appspot.com/" /><item>                    <pubDate>Mon, 23 Dec 2013 13:00:00 GMT</pubDate>
+                    <title>Tiësto`s club life podcast 351</title>
+                    <author>Tiësto</author>
+                    <itunes:author>Tiësto</itunes:author>
+                    <description>The Sound Of Tiësto!</description>
+                    
+                    <itunes:link rel="image" type="video/jpeg" href="http://club.bnn.nl">Tiësto`s club life podcast 351</itunes:link>
+                <enclosure url="http://feedproxy.google.com/~r/tiestos_club_life/~5/-tmf90u2b7k/clublife351.m4a" length="0" type="audio/mpeg" /><feedburner:origEnclosureLink>http://rss.bnn.nl/db_audio/clublife351.m4a</feedburner:origEnclosureLink></item>
+	
+                <item>                    <pubDate>Mon, 16 Dec 2013 13:00:00 GMT</pubDate>
+                    <title>Tiësto`s club life podcast 350</title>
+                    <author>Tiësto</author>
+                    <itunes:author>Tiësto</itunes:author>
+                    <description>The Sound Of Tiësto!</description>
+                    
+                    <itunes:link rel="image" type="video/jpeg" href="http://club.bnn.nl">Tiësto`s club life podcast 350</itunes:link>
+                <enclosure url="http://feedproxy.google.com/~r/tiestos_club_life/~5/GBazBsZvT60/clublife350.m4a" length="0" type="audio/mpeg" /><feedburner:origEnclosureLink>http://rss.bnn.nl/db_audio/clublife350.m4a</feedburner:origEnclosureLink></item>
+	
+                <item>                    <pubDate>Mon, 09 Dec 2013 13:00:00 GMT</pubDate>
+                    <title>Tiësto`s club life podcast 349</title>
+                    <author>Tiësto</author>
+                    <itunes:author>Tiësto</itunes:author>
+                    <description>The Sound Of Tiësto!</description>
+                    
+                    <itunes:link rel="image" type="video/jpeg" href="http://club.bnn.nl">Tiësto`s club life podcast 349</itunes:link>
+                <enclosure url="http://feedproxy.google.com/~r/tiestos_club_life/~5/2tMHE_HD5Ss/clublife349.m4a" length="0" type="audio/mpeg" /><feedburner:origEnclosureLink>http://rss.bnn.nl/db_audio/clublife349.m4a</feedburner:origEnclosureLink></item>               
+</channel>
+</rss>
