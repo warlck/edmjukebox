@@ -41,6 +41,15 @@ feature 'User viewing player homepage' do
 		click_link artist.name
 		expect(current_path).to eq artist_path(artist)
 	end
+
+
+	scenario "sees Sign Up and Login links" do
+		expect(page).to have_link "Sign Up"
+		expect(page).to have_link "Login"
+	end
+
+
+
 		
 end
 

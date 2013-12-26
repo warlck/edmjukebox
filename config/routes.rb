@@ -2,7 +2,13 @@
 Edmplayer::Application.routes.draw do
 root :to =>  "players#show"
 
+get "logout", to: "sessions#destroy" , as: "logout"
+get "login", to: "sessions#new", as: "login"
+get "signup", to: "user#new", as: "signup"
+
 resource :player , only: [:show], as: "player"
 resources :artists, only: [:show]
+resources :users , only: [:new, :create]
+resources :sessions, only: [:new, :create]
 
 end

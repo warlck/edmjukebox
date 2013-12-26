@@ -19,4 +19,10 @@ FactoryGirl.define do
 		file_url "http://media2-so.podtree.com/media/itunes_image/aokishouse_podcast.png"
 		duration '1:00:00'
 	end
+
+	factory :user do
+		email "foo@bar.com"
+		password "foobar"
+		password_confirmation "foobar"
+	end
 end

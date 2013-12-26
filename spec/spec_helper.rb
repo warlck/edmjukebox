@@ -82,7 +82,7 @@ Spork.prefork do
   config.filter_run focus: true
   config.run_all_when_everything_filtered = true
 
- # config.filter_run_excluding :slow unless ENV["SLOW_SPECS"]
+  config.filter_run_excluding :slow unless ENV["SLOW_SPECS"]
 
   config.before(:all) { DeferredGarbageCollection.start }
   config.after(:all) { DeferredGarbageCollection.reconsider }
