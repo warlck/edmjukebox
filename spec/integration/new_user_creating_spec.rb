@@ -23,7 +23,6 @@ feature "creating new user" do
 	end
 
 	scenario "unsuccessfully given invalid email" do
-	
 		fill_in "Email", with: ""
 		fill_in "Password", with: "foobar"
 		fill_in "Password confirmation", with: "foobar"

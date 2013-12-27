@@ -2,7 +2,7 @@ require 'spec_helper'
 
 feature "User logs in" do
 	scenario "successfully , when provided valid authentication values" do
-		user = create(:user)
+        user = create(:user)
         visit root_path
         click_link "Login"
         expect(page).to have_content "Log In"
@@ -14,8 +14,10 @@ feature "User logs in" do
         expect(page).not_to have_content "Sign Up"
         expect(page).not_to have_content "Login"
 	end
+
+
 	scenario "successfully , when provided valid authentication values" do
-		user = create(:user)
+	user = build_stubbed(:user)
         visit root_path
         click_link "Login"
         expect(page).to have_content "Log In"
