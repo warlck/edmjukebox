@@ -4,7 +4,7 @@ root :to =>  "players#show"
 
 get "logout", to: "sessions#destroy" , as: "logout"
 get "login", to: "sessions#new", as: "login"
-get "signup", to: "user#new", as: "signup"
+get "signup", to: "users#new", as: "signup"
 
 resource :player , only: [:show], as: "player"
 resources :artists, only: [:show]
