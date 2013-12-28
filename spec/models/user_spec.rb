@@ -8,6 +8,8 @@ describe User do
     	it { should respond_to(:email)}
     	it { should respond_to(:password)}
     	it { should respond_to(:password_digest)}
+        it { should respond_to(:name) }
+        it { should respond_to(:auth_token)}
     end
 
     it "is invalid without email address" do
@@ -21,6 +23,30 @@ describe User do
     it "is invalid without password confirmation" do
        invalid_without :password_confirmation
     end
+
+    it "is invalid without name" do
+        invalid_without :name
+    end
+
+
+    describe "email" do
+        it "is unique" do
+            create(:user, email: "foo@bar.com")
+            user = build(:user, email: "foo@bar.com")
+            expect(user).to have(1).errors_on(:email) 
+        end
+    end
+
+
+    describe "auth_token" do
+        let(:user) { create(:user) }
+        it "is defined when user is created" do
+            expect(user.auth_token).not_to be_nil
+        end
+    end
+
+
+
 
 
 end

@@ -1,7 +1,7 @@
 require 'spec_helper'
 
     
-     feature "User logs in" do
+     feature "User logging in" do
          before(:each)  do  
                      visit root_path
                      click_link "Login"
@@ -22,7 +22,6 @@ require 'spec_helper'
 
         scenario "successfully , when provided valid authentication values" do
           user = build_stubbed(:user)
-          expect(page).to have_content "Log In"
           fill_in "Email", with: user.email 
           fill_in "Password", with: "incorrect"
           click_button "Log In"
@@ -31,7 +30,6 @@ require 'spec_helper'
 
         scenario "successfully , when provided valid authentication values" do
           user = create(:user)
-          expect(page).to have_content "Log In"
           fill_in "Email", with: user.email 
           fill_in "Password", with: "foobar"
           click_button "Log In"
@@ -40,6 +38,8 @@ require 'spec_helper'
           expect(page).not_to have_content "Sign Up"
           expect(page).not_to have_content "Login"
         end
+
+      
 
 
 end

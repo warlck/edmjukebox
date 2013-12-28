@@ -42,7 +42,7 @@ feature "creating new user" do
 		expect(page).to have_content "New User Registration"
 	end
 
-	scenario "unsuccessfully  given empty	password " do
+	scenario "unsuccessfully  given empty	name " do
 		fill_in "Email", with: "me@example.com"
 		fill_in "Password", with: "foobar"
 		fill_in "Password confirmation", with: "foobar"
@@ -50,8 +50,6 @@ feature "creating new user" do
 		expect(page).to have_content "Name can't be blank"
 		expect(page).to have_content "New User Registration"
 	end
-
-
 
 
 end
