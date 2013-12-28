@@ -1,18 +1,19 @@
-# require "spec_helper"
+require "spec_helper"
 
-# describe UserMailer do
-#   describe "password_reset" do
-#     let(:mail) { UserMailer.password_reset }
+describe UserMailer do
+  describe "password_reset" do
+	let(:user) { create(:user, :password_reset_token => "anyhting") }
+    let(:mail) { UserMailer.password_reset user }
+   
 
-#     it "renders the headers" do
-#       mail.subject.should eq("Password reset")
-#       mail.to.should eq(["to@example.org"])
-#       mail.from.should eq(["from@example.com"])
-#     end
+    it "sends user password reset url" do
+      mail.subject.should eq("Password Reset")
+      mail.to.should eq([user.email])
+      mail.from.should eq(["from@example.com"])
+      mail.body.encoded.should match(edit_password_reset_path(user.password_reset_token))
+    end
 
-#     it "renders the body" do
-#       mail.body.encoded.should match("Hi")
-#     end
-#   end
 
-# end
+  end
+
+end

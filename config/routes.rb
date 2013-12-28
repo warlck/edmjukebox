@@ -10,5 +10,5 @@ resource :player , only: [:show], as: "player"
 resources :artists, only: [:show]
 resources :users , only: [:new, :create]
 resources :sessions, only: [:new, :create]
-resources :password_resets ,only: [:new, :create]
+resources :password_resets ,only: [:new, :create, :update, :edit]
 end

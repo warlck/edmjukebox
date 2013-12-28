@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe User do
+
     describe "instance" do
     	let(:user) { build_stubbed(:user)}
     	subject { user }
@@ -20,9 +21,6 @@ describe User do
         invalid_without :password
     end
 
-    it "is invalid without password confirmation" do
-       invalid_without :password_confirmation
-    end
 
     it "is invalid without name" do
         invalid_without :name
@@ -44,6 +42,29 @@ describe User do
             expect(user.auth_token).not_to be_nil
         end
     end
+
+
+    describe "#send_password_reset" do
+        let(:user) { create(:user)}
+
+        it "generates unique password reset token each time" do
+            user.send_password_reset
+            last_token = user.password_reset_token
+            user.send_password_reset
+            expect(user.password_reset_token).not_to eq(last_token)
+        end
+
+        it "saves the time password reset was sent" do
+            user.send_password_reset
+            expect(user.reload.password_reset_sent_at).to be_present
+        end
+
+        it "delivers email to user" do
+            user.send_password_reset
+            expect(last_email.to).to include(user.email)
+        end
+    end
+
 
 
 
