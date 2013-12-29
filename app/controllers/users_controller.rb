@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
 	def show
-		@artists = current_user.artists
+		@artists = current_user.artists.includes(:podcasts)
 	end
 
 	def new
