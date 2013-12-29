@@ -8,7 +8,8 @@ get "signup", to: "users#new", as: "signup"
 
 resource :player , only: [:show], as: "player"
 resources :artists, only: [:show]
-resources :users , only: [:new, :create]
+resources :users , only: [:new, :create, :show]
 resources :sessions, only: [:new, :create]
 resources :password_resets ,only: [:new, :create, :update, :edit]
+resources :subscriptions, only: [:create]
 end

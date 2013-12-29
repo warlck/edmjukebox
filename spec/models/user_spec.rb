@@ -66,6 +66,47 @@ describe User do
     end
 
 
+    describe "subscriptions association" do
+        let(:user) { create(:user)}
+        it "are defined" do
+            expect(user).to respond_to(:subscriptions)
+        end
+
+        context "creating and deleting subscription objects " do
+            let(:sub) { Subscription.new}
+            before(:each) { user.subscriptions << sub}
+            it "can create subscriptions associated to user" do
+              expect(user.subscriptions).not_to be_empty
+            end
+
+            it "creates Subscription object in database" do
+              expect(Subscription.all).not_to be_empty
+            end
+
+            it "deletes associated subscriptions on object deletion" do
+                user.destroy
+                expect(Subscription.all).to be_empty
+            end
+        end
+
+     
+
+        context "artist subscribing" do
+            let(:artist) {create(:artist)}
+
+            it "add artists methods to user" do
+                expect(user).to respond_to(:artists)
+            end
+
+            it "associates artist with user through subscriptions" do
+                user.subscriptions.create(artist_id: artist.id)
+                expect(user.reload.artists).to eq [artist]
+            end
+            
+        end
+    end
+
+
 
 
 

@@ -6,6 +6,16 @@
         <div class="col-md-3">
         <div id = 'artist_sidebar' class="sidebar">
              <img  data-image="artist_image" src="<%= @artist.image.url(:medium) %>">
+             <div class="subscribe_button">
+              <% if current_user %>
+                <%= form_tag subscriptions_path , method: :post  do %>
+                <div class="actions">
+                  <%= hidden_field_tag(:artist_id, @artist.id) %>
+                  <%= submit_tag "Subscribe" %>
+                </div>
+                <% end %>
+              <% end %>
+             </div>
              <div id='links'>
               <h4 >Links</h4>
               <p>
