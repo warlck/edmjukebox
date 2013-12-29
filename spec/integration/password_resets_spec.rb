@@ -54,11 +54,5 @@ describe "Password Reset" do
 		expect { visit edit_password_reset_path("invalid")}.
 		to raise_exception(ActiveRecord::RecordNotFound)
 	end
-
-
-
-
-
-
 	
 end

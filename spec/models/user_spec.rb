@@ -14,16 +14,16 @@ describe User do
     end
 
     it "is invalid without email address" do
-    	invalid_without :email
+    	user_invalid_without :email
     end
 
     it "is invalid without password" do
-        invalid_without :password
+        user_invalid_without :password
     end
 
 
     it "is invalid without name" do
-        invalid_without :name
+        user_invalid_without :name
     end
 
 
@@ -73,7 +73,7 @@ describe User do
 end
 
 
-def invalid_without attribute
+def user_invalid_without attribute
     user = build_stubbed(:user, attribute => nil)
     expect(user).to be_invalid
 end

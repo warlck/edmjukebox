@@ -17,20 +17,20 @@ describe Podcast do
 
 
    it "is invalid without title" do
-   	  invalid_without :title
+   	  podcast_invalid_without :title
    end
 
    it "is invalid without duration" do
-   	  invalid_without :duration
+   	  podcast_invalid_without :duration
    end
 
    it "is invalid without guid" do
-   	 invalid_without :guid
+   	 podcast_invalid_without :guid
    end
 
 
    it "is invalid without summary" do
-   	  invalid_without :summary
+   	  podcast_invalid_without :summary
    end
 
    
@@ -101,7 +101,7 @@ def has_count_errors_on attribute , value, n
           to have(n).errors_on(attribute)
 end
 
-def invalid_without attribute
+def podcast_invalid_without attribute
    has_count_errors_on attribute , nil, 1
 end
 
