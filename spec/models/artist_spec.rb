@@ -177,7 +177,7 @@ describe Artist  do
     end
   end
 
-  describe "image attachment" do
+  describe "image attachment", :slow  do
     
     let(:artist) { Artist.create_artist local_feed_url(true) }
 

@@ -17,4 +17,9 @@ class SessionsController < ApplicationController
 			 render :new
 		end
 	end
+
+	def destroy
+		cookies.delete(:auth_token)
+		redirect_to root_path
+	end
 end

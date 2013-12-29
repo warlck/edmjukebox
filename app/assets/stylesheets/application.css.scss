@@ -29,6 +29,10 @@
 	position: fixed;
 	background-color: #333;
 	color: #ddd;
+	padding-top: 3px;
+    div {
+    	display: inline;
+    }
 }
 
 #jp_container_1 {
@@ -46,3 +50,27 @@ body {
 #artists {	
 	list-style:none;
 }
+
+
+.logged_in , .not_logged_in {
+	float: right;
+	margin: auto 10px;
+
+}
+
+
+.top-navbar-brand {
+	font-size: 18px;
+    color: #aaa;
+    font-weight: bold;
+    margin-top: 6px;
+    margin-left:10px;
+
+    &:hover {
+    	color: #eee;
+    	text-decoration: none;
+    }
+}
+
+
+
