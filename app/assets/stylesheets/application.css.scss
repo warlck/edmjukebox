@@ -59,11 +59,10 @@ body {
 }
 
 
-.top-navbar-brand {
+.top-navbar-brand, .top-navbar {
 	font-size: 18px;
     color: #aaa;
     font-weight: bold;
-    margin-top: 6px;
     margin-left:10px;
 
     &:hover {
@@ -71,6 +70,12 @@ body {
     	text-decoration: none;
     }
 }
+
+.top-navbar {
+  font-size: 1em;
+}
+
+
 
 
 
