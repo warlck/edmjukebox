@@ -3,11 +3,15 @@ class UsersController < ApplicationController
 	def show
 
 		@artists = current_user.artists.includes(:podcasts)
-		@podcasts = 
+		
 		 if !params[:artist_id] 
-		 	@artists.first.podcasts
+		 	@podcasts = @artists.first.podcasts
 		 else
-		 	Artist.find(params[:artist_id]).podcasts
+		 	@podcasts = Artist.find(params[:artist_id]).podcasts
+		 	respond_to do |format|
+		        format.html { redirect_to tasks_url }
+		        format.js  { render 'change_artist.js.erb'}
+		    end
 		 end
 
 		 

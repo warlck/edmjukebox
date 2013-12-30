@@ -1,0 +1,21 @@
+<div class="row">
+	<div class="col-md-4">
+	  <ul class="subscriptions">
+		<% @artists.each  do |artist| %>
+		 <a href="<%= user_path current_user , artist_id: artist.id %>" data-remote="true" > <li id= 'subscription'> 
+		  	<div id="subscription_details">
+               <img src="<%= artist.image.url(:icon) %>"> 
+		  	   <p><%= artist.channel_title %></p>
+		  	</div>
+		  </li>
+		  </a>
+		<% end %>
+	   </ul>
+	</div>
+
+
+	<div class="col-md-8 user-artist-podcasts">
+      <%= render 'users/user_artists_podcasts' %>
+	</div>
+</div>
+
