@@ -53,11 +53,11 @@
     <div id="track_info">
       <img src=<%= Podcast.first.artist.image.url(:icon) %>>
       <div class="artist_podcast_titles">
+         <div id = "aritist_name">
+             <p ><%= Podcast.first.artist.name %></p>
+        </div>
         <div id="track title">
           <p ><%= Podcast.first.title %></p>
-        </div>
-        <div id = "aritist_name">
-             <p >by <%= Podcast.first.artist.name %></p>
         </div>
          <div id = "channel_title">
              <p >on <%= Podcast.first.artist.channel_title %></p>

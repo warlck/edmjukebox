@@ -114,3 +114,8 @@ li.artist  {
 }
 
 
+#user-artists-podcasts , .subscriptions{
+
+	@include box-shadow();
+}
+

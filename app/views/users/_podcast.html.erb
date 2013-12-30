@@ -1,0 +1,19 @@
+<li>
+  <div class="row">
+     	<div class="col-md-4">
+	  <p><%= format_date(podcast.published) %></p>
+         <p><%= podcast.artist.name %></p>
+       </div>
+       <div class="col-md-8 user-artist-podcast-details">
+         <p><%= podcast.title %></p>
+         <div class="user-podcast-summary">
+            <p ><%= podcast.summary %></p>
+         </div>
+         
+         <div class="more">
+              <a href="#">More <span class="glyphicon glyphicon-chevron-down"></span></a>
+         </div>
+         
+        </div>
+   </div>
+</li>
