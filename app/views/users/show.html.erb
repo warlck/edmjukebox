@@ -2,7 +2,7 @@
 	<div class="col-md-4">
 	  <ul class="subscriptions">
 		<% @artists.each  do |artist| %>
-		 <a href="#"> <li id= 'subscription'> 
+		 <a href="<%= user_path current_user , artist_id: artist.id %>" data-remote="true" > <li id= 'subscription'> 
 		  	<div id="subscription_details">
                <img src="<%= artist.image.url(:icon) %>"> 
 		  	   <p><%= artist.channel_title %></p>
@@ -14,12 +14,8 @@
 	</div>
 
 
-	<div class="col-md-8">
-       <ul id="user-artists-podcasts" >
-       	<%  @artists.first.podcasts.each  do |podcast|%>
-       	  <%= render partial: 'users/podcast', locals: {podcast: podcast }  %>
-   	    <% end %>
-       </ul>
+	<div class="col-md-8 user-artist-podcasts">
+      <%= render 'users/user_artists_podcasts' %>
 	</div>
 </div>
 

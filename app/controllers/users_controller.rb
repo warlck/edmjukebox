@@ -1,7 +1,16 @@
 class UsersController < ApplicationController
 
 	def show
+
 		@artists = current_user.artists.includes(:podcasts)
+		@podcasts = 
+		 if !params[:artist_id] 
+		 	@artists.first.podcasts
+		 else
+		 	Artist.find(params[:artist_id]).podcasts
+		 end
+
+		 
 	end
 
 	def new

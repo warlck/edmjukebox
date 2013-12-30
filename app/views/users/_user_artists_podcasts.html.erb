@@ -1,0 +1,5 @@
+ <ul id="user-artists-podcasts" >
+	<%  @podcasts.each  do |podcast|%>
+	  <%= render partial: 'users/podcast', locals: {podcast: podcast }  %>
+    <% end %>
+</ul>
