@@ -1,0 +1,81 @@
+
+  <div class="row artist-page">
+      
+     <div class="col-md-12 light-gray">
+      <div class="row">
+        <div class="col-md-3">
+        <div id = 'artist_sidebar' class="sidebar">
+             <img  data-image="artist_image" src="<%= @artist.image.url(:medium) %>">
+             <div class="subscribe_button">
+              <% if current_user %>
+                <%= form_tag subscriptions_path , method: :post  do %>
+                <div class="actions">
+                  <%= hidden_field_tag(:artist_id, @artist.id) %>
+                  <%= submit_tag "Subscribe" %>
+                </div>
+                <% end %>
+              <% end %>
+             </div>
+             <div id='links'>
+              <h4 >Links</h4>
+              <p>
+                <%= link_to 'Website', @artist.url %>
+              </p>
+              <p>
+              <%= link_to 'Report a Concern', 'mailto:addick@me.com' %>
+              </p>
+             </div>
+        </div>
+    </div>
+        <div class="col-md-9">
+          <div class="ch-info">
+            <h1><%= @artist.channel_title %></h1>
+            <h4 class="text-muted"> <span>
+              <%= @artist.name %>
+              </span>
+              <span class="glyphicon glyphicon-chevron-right"></span>
+            </h4>
+          </div>         
+        </div>
+      </div> 
+     </div>
+
+
+     <div class="col-md-12 dark-gray">
+      <div class="col-md-3"></div>
+      <div class="col-md-9">
+        <div class="ch-description">
+          <h2>Decription</h2>
+          <p><%= @artist.channel_description %></p>
+        </div>
+
+
+       <div class="podcasts-list">
+        <div class="row podcast-labels">
+            <div class="col-md-4 podcast-label">
+            <p class="name">Name</p>
+          </div>
+          <div class="col-md-1 podcast-label">
+            <p class="time">Time</p>
+          </div>
+          <div class="col-md-3 podcast-label">
+            <p class="released">Released</p>
+          </div>
+          <div class="col-md-4 podcast-label">
+            <p  class="description">Description</p>
+          </div>
+        </div>
+
+        <ul id = 'podcasts' >
+          <%= render @artist.podcasts %>
+        </ul>
+       </div>
+       
+      
+      </div>
+
+     </div>
+
+  </div>
+
+

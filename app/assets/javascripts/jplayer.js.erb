@@ -9,16 +9,13 @@
 //         supplied: "m4a"
 //       }); 
 // });
+var player;
+var playerInstance;
+
 
 $(function() {
     $('#jp-pause').hide();
-
-
-	var playerInstance
-
-	var player;
-
-	$('.podcast').on('click', function() {
+	$(document).on('click','.podcast', function() {
 			var $this = $(this);
 
 			// Show Pause button first
@@ -42,7 +39,7 @@ $(function() {
 	            }).jPlayer("play"); // auto play
 		}
 		
-
+    playerInstance = $('#playerInstance').clone();
 	console.log($this.data('link'));
 
 	});

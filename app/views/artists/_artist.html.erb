@@ -2,8 +2,8 @@
 <a href="<%= artist_path(artist)%>">
 	 <img  class="c-artist-img"src="<%= artist.image.url(:thumb)%>">
 </a>
-<div class="channel-info">
-	<a href="<%= artist_path(artist)%>">
+<div class="channel-info"  data-no-turbolink>
+	<a href="<%= artist_path(artist)%>" data-remote='true' >
 	     <p class="channel_title"><%= artist.channel_title %></p> 
 	  	 <p class = "artist_name text-muted"><%= artist.name %></p>
 	</a>
