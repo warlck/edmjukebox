@@ -11,6 +11,8 @@
 // });
 
 $(function() {
+    $('#jp-pause').hide();
+
 
 	var playerInstance
 
@@ -18,8 +20,10 @@ $(function() {
 
 	$('.podcast').on('click', function() {
 			var $this = $(this);
+
+			// Show Pause button first
+			$('#jp-pause').show();
 			if(player == null) {
-					
 				player = $("#jquery_jplayer_1").jPlayer({
 			        ready: function () {
 			           $(this).jPlayer("setMedia", {
@@ -33,7 +37,6 @@ $(function() {
 
 		} 
 		else {
-
 			player.jPlayer("setMedia", {
 	                m4a: $this.data('link')
 	            }).jPlayer("play"); // auto play

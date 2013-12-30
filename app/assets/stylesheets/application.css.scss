@@ -75,7 +75,60 @@ body {
   font-size: 1em;
 }
 
+#jp-progress {
+  top: 56px;
+  width: 20%;
+  margin-left:26%;
+  height: 7px;
+}
+
+#jp-time-holder {
+  top: 69%;
+  left: 31%;
+  right: 43%;
+}
+
+#jp-controls {
+  top: 5px;
+  left: 40%;
+  right: 44%;
+}
+
+#jp-volume-bar {
+  right: 46%;
+  top:22px;
+}
 
 
 
+#track_info {
+  position: absolute;
+  top: 7px;
+  right: 5px;
+   img {
+      float:right;
+   }
 
+
+
+   .artist_podcast_titles {
+     float: left;
+
+        div {
+           margin-right: 5px;
+
+             p {
+              color: #555;
+              font-weight: bold;
+              float: right;
+              font-size: 0.75em;
+              margin-bottom: 0px;
+             }
+        } 
+   }
+
+}
+
+#jp-pause {
+  display:hidden;
+}
