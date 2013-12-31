@@ -7,7 +7,7 @@
         <div id = 'artist_sidebar' class="sidebar">
              <img  data-image="artist_image" src="<%= @artist.image.url(:medium) %>">
              <div class="subscribe_button">
-              <% if current_user %>
+              <% if current_user && !(current_user.subscribed_to @artist) %>
                 <%= form_tag subscriptions_path , method: :post  do %>
                 <div class="actions">
                   <%= hidden_field_tag(:artist_id, @artist.id) %>

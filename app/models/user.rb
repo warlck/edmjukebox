@@ -24,6 +24,10 @@ class User < ActiveRecord::Base
     self.subscriptions.create(artist_id: artist_id)
   end
 
+  def subscribed_to artist
+    self.artists.include? artist
+  end
+
 
   private 
     def generate_token(column)
