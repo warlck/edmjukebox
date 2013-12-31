@@ -47,12 +47,16 @@ $(function() {
 	// });
 
 
-	$(document).on('click', '.podcast_item', function(){
+	$(document).on('click.podcast', '.podcast_item', function(){
 		current_podcast = $(this);
 		$.ajax({
 			url: play_url(current_podcast, player)
 		});
 	});
+
+
+
+
 
 
 
