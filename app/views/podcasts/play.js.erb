@@ -1,0 +1,40 @@
+
+
+(function() {
+
+
+
+var img = $('<img src="<%= j @artist.image.url(:icon)  %>">')
+
+	$('#track_info img').remove();
+	$('#track_info').append(img)
+	$('#artist_name p').empty().append("<%= j @artist.name %>");
+	$('#track_title p').empty().append("<%= j @podcast.title %>");
+	$('#channel_title p').empty().append("<%= j @artist.channel_title  %>");
+
+
+	$('#jp-pause').show();
+	
+	if(player == null) {
+		player = $("#jquery_jplayer_1").jPlayer({
+	        ready: function () {
+	           $(this).jPlayer("setMedia", {
+	                m4a: "<%= j @podcast.file_url %>"
+	            }).jPlayer("play"); // auto play
+	        },
+	        solution: " html, flash",
+	        swfPath: "./Jplayer.swf",
+	        supplied: "m4a"
+      }); 
+
+      }  
+	else {
+		player.jPlayer("setMedia", {
+	            m4a: "<%= j @podcast.file_url %>"
+	        }).jPlayer("play"); // auto play
+	}
+})();
+	
+
+
+

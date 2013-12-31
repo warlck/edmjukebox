@@ -2,7 +2,7 @@
 	<div class="col-md-4">
 	  <ul class="subscriptions">
 		<% @artists.each  do |artist| %>
-		 <a href="<%= user_path current_user , artist_id: artist.id %>" data-remote="true" > <li id= 'subscription'> 
+		 <a href="<%= user_path current_user , artist_id: artist.id %>" data-remote="true" id='<%= artist.name %>' > <li id= 'subscription'> 
 		  	<div id="subscription_details">
                <img src="<%= artist.image.url(:icon) %>"> 
 		  	   <p><%= artist.channel_title %></p>

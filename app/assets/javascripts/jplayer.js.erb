@@ -11,10 +11,12 @@
 // });
 var player;
 var playerInstance;
+var current_podcast_id;
 
 
 $(function() {
     $('#jp-pause').hide();
+
 	$(document).on('click','.podcast', function() {
 			var $this = $(this);
 
@@ -44,4 +46,37 @@ $(function() {
 
 	});
 
+
+	$(document).on('click', '.podcast_item', function(){
+		current_podcast = $(this);
+		$.ajax({
+			url: '/play.js?id='+ current_podcast.data('id')
+		});
+	});
+
+
+
+    $(document).on('click', '.jp-next', function(){
+    	current_podcast = current_podcast.next();
+
+		$.ajax({
+			url: '/play.js?id='+ current_podcast.data('id')
+		});
+    });
+
+     $(document).on('click', '.jp-previous', function(){
+     	current_podcast = current_podcast.prev();
+
+		$.ajax({
+			url: '/play.js?id='+ current_podcast.data('id')
+		});
+    });
+
+
+
+
+
+
+
 });
+

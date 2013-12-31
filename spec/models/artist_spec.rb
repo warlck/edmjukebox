@@ -6,11 +6,11 @@ require 'spec_helper'
 # Without running callbacks
 describe Artist  do
 
-  before :each do 
+  before :all do 
     Artist.skip_callback(:create, :after, :add_entries)
   end
 
-  after :each do
+  after :all do
     Artist.set_callback(:create, :after, :add_entries)
   end
 

@@ -22,9 +22,11 @@ feature "Subscribing to artist" do
         log_in user
         visit artist_path(artist)
         click_button "Subscribe"
-        expect(current_path).to eq(artist_path(artist))
         expect(page).not_to have_button "Subscribe"
         expect(user.subscribed_to(artist) ).to eq true 
+        expect(current_path).to eq(artist_path(artist))
     end
+
+
 
 end
