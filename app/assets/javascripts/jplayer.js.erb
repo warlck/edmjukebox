@@ -11,71 +11,85 @@
 // });
 var player;
 var playerInstance;
-var current_podcast_id;
+var current_podcast;
+
+
+function play_url(podcast, player) {
+    var time;
+
+    if(player) {
+
+    	time = '&time='+player.data("jPlayer").status.currentTime;
+   
+    }
+    else 
+    	time = '';
+
+	return '/play.js?id='+ podcast.data('id')+time;
+}
 
 
 $(function() {
     $('#jp-pause').hide();
 
-	$(document).on('click','.podcast', function() {
-			var $this = $(this);
+	// $(document).on('click','.podcast', function() {
+	// 		var $this = $(this);
 
-			// Show Pause button first
-			$('#jp-pause').show();
-			if(player == null) {
-				player = $("#jquery_jplayer_1").jPlayer({
-			        ready: function () {
-			           $(this).jPlayer("setMedia", {
-			                m4a: $this.data('link')
-			            }).jPlayer("play"); // auto play
-			        },
-			        solution: " html, flash",
-			        swfPath: "./Jplayer.swf",
-			        supplied: "m4a"
-		      }); 
+	// 		// Show Pause button first
+	// 		$('#jp-pause').show();
+	// 		if(player == null) {
+	// 			player = $("#jquery_jplayer_1").jPlayer({
+	// 		        ready: function () {
+	// 		           $(this).jPlayer("setMedia", {
+	// 		                m4a: $this.data('link')
+	// 		            }).jPlayer("play"); // auto play
+	// 		        },
+	// 		        solution: " html, flash",
+	// 		        swfPath: "./Jplayer.swf",
+	// 		        supplied: "m4a"
+	// 	      }); 
 
-		} 
-		else {
-			player.jPlayer("setMedia", {
-	                m4a: $this.data('link')
-	            }).jPlayer("play"); // auto play
-		}
+	// 	} 
+	// 	else {
+	// 		player.jPlayer("setMedia", {
+	//                 m4a: $this.data('link')
+	//             }).jPlayer("play"); // auto play
+	// 	}
 		
-    playerInstance = $('#playerInstance').clone();
-	console.log($this.data('link'));
+ //    playerInstance = $('#playerInstance').clone();
+	// console.log($this.data('link'));
 
-	});
+	// });
 
 
 	$(document).on('click', '.podcast_item', function(){
 		current_podcast = $(this);
 		$.ajax({
-			url: '/play.js?id='+ current_podcast.data('id')
+			url: play_url(current_podcast, player)
 		});
 	});
 
 
 
     $(document).on('click', '.jp-next', function(){
-    	current_podcast = current_podcast.next();
 
-		$.ajax({
-			url: '/play.js?id='+ current_podcast.data('id')
-		});
+        if ( current_podcast.next().data('id') != null) {
+	    	current_podcast = current_podcast.next();
+
+			$.ajax({
+				url: play_url(current_podcast, player)
+			});
+	}
     });
 
      $(document).on('click', '.jp-previous', function(){
-     	current_podcast = current_podcast.prev();
-
-		$.ajax({
-			url: '/play.js?id='+ current_podcast.data('id')
-		});
+	 	 if ( current_podcast.prev().data('id') != null) {
+	     	current_podcast = current_podcast.prev();
+			$.ajax({
+				url: play_url(current_podcast, player)
+			});
+	 	 }
     });
-
-
-
-
-
 
 
 });

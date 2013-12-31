@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131229124446) do
+ActiveRecord::Schema.define(:version => 20131231121950) do
 
   create_table "artists", :force => true do |t|
     t.string   "name"
@@ -35,8 +35,9 @@ ActiveRecord::Schema.define(:version => 20131229124446) do
     t.string   "file_url"
     t.string   "duration"
     t.integer  "artist_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.integer  "current_time"
   end
 
   add_index "podcasts", ["artist_id"], :name => "index_podcasts_on_artist_id"

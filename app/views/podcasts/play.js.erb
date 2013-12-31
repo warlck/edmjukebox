@@ -14,13 +14,15 @@ var img = $('<img src="<%= j @artist.image.url(:icon)  %>">')
 
 
 	$('#jp-pause').show();
+
+
 	
 	if(player == null) {
 		player = $("#jquery_jplayer_1").jPlayer({
 	        ready: function () {
 	           $(this).jPlayer("setMedia", {
 	                m4a: "<%= j @podcast.file_url %>"
-	            }).jPlayer("play"); // auto play
+	            }).jPlayer("play", <%= @podcast.current_time || 0 %>);
 	        },
 	        solution: " html, flash",
 	        swfPath: "./Jplayer.swf",
@@ -31,8 +33,10 @@ var img = $('<img src="<%= j @artist.image.url(:icon)  %>">')
 	else {
 		player.jPlayer("setMedia", {
 	            m4a: "<%= j @podcast.file_url %>"
-	        }).jPlayer("play"); // auto play
+	        }).jPlayer("play", <%= @podcast.current_time || 0 %>);
 	}
+
+		
 })();
 	
 
