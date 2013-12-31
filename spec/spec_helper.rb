@@ -54,6 +54,7 @@ Spork.prefork do
 
     # configure database cleaner
    
+   
     config.before(:suite) do
       DatabaseCleaner.clean_with(:truncation)
     end
@@ -61,7 +62,10 @@ Spork.prefork do
     config.before(:each) do
       DatabaseCleaner.strategy = :transaction
     end
-   
+
+    config.before(:each, :js => true) do
+      DatabaseCleaner.strategy = :truncation
+    end
 
     config.before(:each) do
       DatabaseCleaner.start
@@ -70,6 +74,7 @@ Spork.prefork do
     config.after(:each) do
       DatabaseCleaner.clean
     end
+
 
     # delete all temporary paperclip files
 

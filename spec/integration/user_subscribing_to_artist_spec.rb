@@ -20,9 +20,9 @@ feature "Subscribing to artist" do
 
     scenario "with js enabled when logged in" , js: true do 
         log_in user
-        debugger
         visit artist_path(artist)
         click_button "Subscribe"
+        expect(current_path).to eq(artist_path(artist))
         expect(page).not_to have_button "Subscribe"
         expect(user.subscribed_to(artist) ).to eq true 
     end
