@@ -16,21 +16,21 @@ $(function() {
       $this.removeClass('more').addClass('less');
       $this_a.text('Less ');
       upChevron.clone().appendTo($this_a);
-
-
-
-       $(document).on('click','.less', function(e){
-		   	  e.preventDefault();
-		      var $this = $(this);
-		      var $this_a = $this.find('a');
-		      $this.prev().css('white-space','nowrap');
-		      $this.removeClass('less').addClass('more');
-		      $this_a.text('More ');
-		      donwChevron.clone().appendTo($this_a);       
-
-	   });  
-
+       
    });
+
+
+   $(document).on('click','.less', function(e){
+          e.preventDefault();
+          var $this = $(this);
+          var $this_a = $this.find('a');
+          $this.prev().css('white-space','nowrap');
+          $this.removeClass('less').addClass('more');
+          $this_a.text('More ');
+          donwChevron.clone().appendTo($this_a);       
+
+     });  
+
 
 
 });
