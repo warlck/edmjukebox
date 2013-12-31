@@ -1,8 +1,6 @@
 class PodcastsController < ApplicationController
 	def play
-       puts "==================="
-	   puts session[:current_user] 	
-	   puts "==================="
+
    	   if session[:current_user]
           podcast = Podcast.find(session[:current_user])
 

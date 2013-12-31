@@ -24,13 +24,4 @@ feature	"User  on user show page" do
 	end
 
 
-	scenario "changing podcast"  , js: true do
-		first_podcast = artist.podcasts.first
-        visit user_path user
-        find(:xpath, "//li[@data-id='#{first_podcast.id}']").click
-        sleep(10);
-        find(:xpath, "//li[@data-id='#{last_podcast.id}']").click
-        expect(last_podcast.current_time).to_not be_nil
-	end
-
 end
