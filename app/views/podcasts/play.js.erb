@@ -22,8 +22,8 @@ var img = $('<img src="<%= j @artist.image.url(:icon)  %>">')
 	                m4a: "<%= j @podcast.file_url %>"
 	            }).jPlayer("play", <%= @podcast.current_time || 0 %>);
 	        },
-	        solution: " html, flash",
-	        swfPath: "./Jplayer.swf",
+	        solution: "flash, html",
+	        swfPath:'<%= j asset_path "Jplayer.swf" %>',
 	        supplied: "m4a"
       }); 
 
@@ -33,8 +33,7 @@ var img = $('<img src="<%= j @artist.image.url(:icon)  %>">')
 	            m4a: "<%= j @podcast.file_url %>"
 	        }).jPlayer("play", <%= @podcast.current_time || 0 %>);
 	}
-
-		
+	
 })();
 	
 
