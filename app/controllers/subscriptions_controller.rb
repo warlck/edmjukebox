@@ -4,7 +4,7 @@ class SubscriptionsController < ApplicationController
 		current_user.subscribe_to_artist params[:artist_id]
 		respond_to do |format|
 		        format.html { redirect_to user_path current_user }
-		        format.js   { render 'create.js.erb'}
+		        format.js   { render 'create'}
         end
 		
 	end

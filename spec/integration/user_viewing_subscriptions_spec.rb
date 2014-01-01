@@ -12,7 +12,7 @@ require 'spec_helper'
 			expect(page).to have_content artist.channel_title
 		end
 
-		scenario "switching  artists " , js: true , :slow do
+		scenario "switching  artists " , :slow,  js: true   do
 			hardwell = create(:artist, name: 'Hardwell')
 			hardwell.podcasts << build(:podcast, title: 'Hardwell on Air')
 			user.subscribe_to_artist hardwell.id

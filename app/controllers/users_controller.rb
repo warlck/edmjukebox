@@ -28,7 +28,7 @@ class UsersController < ApplicationController
 		  	@podcasts = Artist.find(params[:artist_id]).podcasts
 		 	respond_to do |format|
 		        format.html 
-		        format.js  { render 'change_artist.js.erb'}
+		        format.js  { render 'change_artist'}
 		    end
 	   end
 end

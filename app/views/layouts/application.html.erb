@@ -40,5 +40,16 @@
 <footer>
 
 </footer>
+
+
+
+<script type="text/javascript">
+   <% if cookies[:last_played_id] %>
+   $(function() {
+       var podcast = $('<li data-id="<%= j cookies[:last_played_id] %>"></li>');
+       play(podcast);
+     });
+   <% end %>
+</script>
 </body>
 </html>

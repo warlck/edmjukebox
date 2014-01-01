@@ -18,7 +18,8 @@ feature "Subscribing to artist" do
         expect(page).not_to have_button "Subscribe"
     end
 
-    scenario "with js enabled when logged in" , js: true do 
+    scenario "with js enabled when logged in" ,:slow, js: true do 
+        user = create(:user)
         log_in user
         visit artist_path(artist)
         click_button "Subscribe"

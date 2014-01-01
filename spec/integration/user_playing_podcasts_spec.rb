@@ -9,7 +9,7 @@ feature	"User  on user show page" do
 		             log_in user 
 		         end
 
-	scenario "playing podcast",  js: true do
+	scenario "playing podcast", :slow, js: true do
 		
         visit user_path user
         expect(page).to have_css '.podcast_item'

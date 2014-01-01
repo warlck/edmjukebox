@@ -4,13 +4,19 @@ var playerInstance;
 var current_podcast;
 
 
-function play_url(podcast, player) {
+var play_url = function(podcast, player) {
     var time;
     if(player) 
     	time = '&time='+player.data("jPlayer").status.currentTime;
     else 
     	time = '';
 	return '/play.js?id='+ podcast.data('id')+time;
+}
+
+var play  = function(current_podcast) {
+    $.ajax({
+			url: play_url(current_podcast, player)
+	});
 }
 
 
@@ -49,9 +55,7 @@ $(function() {
 
 	$(document).on('click.podcast', '.podcast_item', function(){
 		current_podcast = $(this);
-		$.ajax({
-			url: play_url(current_podcast, player)
-		});
+		play(current_podcast);
 	});
 
 
@@ -64,19 +68,15 @@ $(function() {
 
         if ( current_podcast.next().data('id') != null) {
 	    	current_podcast = current_podcast.next();
+	    	play(current_podcast);
 
-			$.ajax({
-				url: play_url(current_podcast, player)
-			});
-	}
+		}
     });
 
      $(document).on('click', '.jp-previous', function(){
 	 	 if ( current_podcast.prev().data('id') != null) {
 	     	current_podcast = current_podcast.prev();
-			$.ajax({
-				url: play_url(current_podcast, player)
-			});
+			play(current_podcast);
 	 	 }
     });
 
