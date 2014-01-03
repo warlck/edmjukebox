@@ -44,12 +44,19 @@
 
 
 <script type="text/javascript">
-   <% if cookies[:last_played_id] %>
    $(function() {
-       var podcast = $('<li data-id="<%= j cookies[:last_played_id] %>"></li>');
-       play(podcast);
-     });
-   <% end %>
+   
+   $('#jp-pause').hide();
+//    $('#track-info').empty();
+
+//    <% if cookies[:last_played_id] %>
+   
+//        var podcast = $('<li data-id="<%= j cookies[:last_played_id] %>"></li>');
+//        play(podcast);
+    
+//     <%= cookies.delete(:last_played_id) %>
+//    <% end %>
+    });
 </script>
 </body>
 </html>
