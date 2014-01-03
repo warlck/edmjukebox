@@ -1,3 +1,23 @@
+
+<% unless current_user %>
+<div class="jumbotron">
+	<h2>Wellcome to rTunes, your favorite EDM podcasts player!</h1>
+		<p>Take 3 easy steps to listen:</p>
+		<div class="row">
+			<div class="col-md-4">
+				Signup and login.
+			</div>
+			<div class="col-md-4">
+                Subscribe to your favorite DJs.
+			</div>
+			<div class="col-md-4">
+                Go to your page and enjoy the  best of EDM.
+			</div>
+		</div>
+
+</div>
+<% end %>
+
 <div class="row">
 	<%= render partial: "players/artists_panel" %>
 	<%= render partial: "players/recent_podcasts" %>

@@ -48,6 +48,17 @@ feature 'User viewing player homepage' do
 		expect(page).to have_link "Login"
 	end
 
+	scenario "sees Recent Podcasts sidebar" do
+		podcast = create(:podcast)
+		visit root_path
+        expect(page).to have_content "Recent Podcasts"
+        within ".recent-podcasts" do
+        	expect(page).to have_link podcast.title
+        end
+    end
+
+
+
 
 
 		

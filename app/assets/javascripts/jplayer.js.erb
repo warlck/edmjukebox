@@ -20,6 +20,8 @@ var play  = function(current_podcast) {
 }
 
 
+
+
 $(function() {
     $('#jp-pause').hide();
 
@@ -53,7 +55,8 @@ $(function() {
 	// });
 
 
-	$(document).on('click.podcast', '.podcast_item', function(){
+	$(document).on('click.podcast', '.podcast_item', function(e){
+		e.preventDefault();
 		current_podcast = $(this);
 		play(current_podcast);
 	});
