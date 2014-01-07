@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131231121950) do
+ActiveRecord::Schema.define(:version => 20140107124003) do
 
   create_table "artists", :force => true do |t|
     t.string   "name"
@@ -27,6 +27,17 @@ ActiveRecord::Schema.define(:version => 20131231121950) do
     t.datetime "image_updated_at"
   end
 
+  create_table "podcast_times", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "podcast_id"
+    t.integer  "time"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "podcast_times", ["podcast_id"], :name => "index_podcast_times_on_podcast_id"
+  add_index "podcast_times", ["user_id"], :name => "index_podcast_times_on_user_id"
+
   create_table "podcasts", :force => true do |t|
     t.string   "title"
     t.text     "summary"
@@ -35,9 +46,8 @@ ActiveRecord::Schema.define(:version => 20131231121950) do
     t.string   "file_url"
     t.string   "duration"
     t.integer  "artist_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
-    t.integer  "current_time"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   add_index "podcasts", ["artist_id"], :name => "index_podcasts_on_artist_id"

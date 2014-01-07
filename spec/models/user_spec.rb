@@ -94,7 +94,7 @@ describe User do
         context "artist subscribing" do
             let(:artist) {create(:artist)}
 
-            it "add artists methods to user" do
+            it "add #artists method to user" do
                 expect(user).to respond_to(:artists)
             end
 
@@ -104,6 +104,62 @@ describe User do
             end
             
         end
+    end
+
+    describe "podcast time association" do
+        let(:user) { create(:user)}
+        let(:podcast) { create(:podcast)}
+        it "is defined" do
+            expect(user).to respond_to :podcast_times
+        end
+
+        it "creates podcast_time associated to user" do
+            podcast_time = PodcastTime.new(user_id: user.id, podcast_id: podcast.id, time: 0)
+            user.podcast_times << podcast_time
+            expect(user.podcast_times.first).to eq podcast_time
+        end
+
+        describe "related update_time method" do
+            it "is defined" do
+                expect(user).to respond_to :update_time
+            end
+
+            it "expects an argument" do
+                expect {user.update_time}.to raise_error
+            end
+
+            it "creates podcast_time instance for given podcast if not already present" do
+                expect{user.update_time(podcast)}.to change{user.podcast_times.count}.by(1)
+            end
+
+            it "updates time of existing podcast_time association instance" do
+                user.update_time podcast
+                user.update_time podcast , 10
+                expect(user.podcast_times.first.time).to eq 10
+            end
+
+        end
+
+        describe "related track_time method" do
+            it "is defined" do
+                expect(user).to respond_to :track_time
+            end
+
+            it "expects and argument" do
+                expect(user.track_time).to raise_error
+            end
+
+            it "returns time of users podcast_time association instance" do
+                 user.update_time podcast, 10
+                 expect(user.track_time podcast).to eq 10
+            end
+
+            it "returns 0 if podcast_time association instance is not defined for give podcast" do
+               expect(user.track_time podcast).to eq 0  
+            end
+            
+        end
+         
     end
 
 

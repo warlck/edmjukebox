@@ -2,7 +2,8 @@
 
 (function() {
 
-  console.log("Helooo!");
+  
+var track_time = <%= current_user.try(:track_time, @podcast) || 0 %>;
 
 var img = $('<img src="<%= j @artist.image.url(:icon)  %>">')
 
@@ -20,9 +21,9 @@ var img = $('<img src="<%= j @artist.image.url(:icon)  %>">')
 	        ready: function () {
 	           $(this).jPlayer("setMedia", {
 	                m4a: "<%= j @podcast.file_url %>"
-	            }).jPlayer("play", <%= @podcast.current_time || 0 %>);
+	            }).jPlayer("play", track_time);
 	        },
-	        solution: "flash, html",
+	        solution: "html, flash",
 	        swfPath:'<%= j asset_path "Jplayer.swf" %>',
 	        supplied: "m4a"
       }); 
@@ -31,9 +32,10 @@ var img = $('<img src="<%= j @artist.image.url(:icon)  %>">')
 	else {
 		player.jPlayer("setMedia", {
 	            m4a: "<%= j @podcast.file_url %>"
-	        }).jPlayer("play", <%= @podcast.current_time || 0 %>);
+	        }).jPlayer("play", track_time);
 	}
-	
+
+
 })();
 	
 
