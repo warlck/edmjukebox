@@ -146,7 +146,7 @@ describe User do
             end
 
             it "expects and argument" do
-                expect(user.track_time).to raise_error
+                expect{user.track_time}.to raise_error
             end
 
             it "returns time of users podcast_time association instance" do
