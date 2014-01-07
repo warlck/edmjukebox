@@ -84,6 +84,10 @@ GEM
       nokogiri (>= 1.5.0)
       rails (>= 3.0.0)
     curb (0.8.5)
+    daemons (1.1.9)
+    daemons-rails (1.2.1)
+      daemons
+      multi_json (~> 1.0)
     database_cleaner (1.2.0)
     debugger (1.6.2)
       columnize (>= 0.3.1)
@@ -268,6 +272,7 @@ DEPENDENCIES
   compass-rails
   compass-susy-plugin
   cucumber-rails
+  daemons-rails
   database_cleaner
   debugger
   factory_girl_rails

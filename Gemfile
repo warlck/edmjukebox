@@ -16,7 +16,7 @@ gem "paperclip", '~> 3.5.0'
 gem 'aws-sdk', '~> 1.6.0'
 gem 'turbolinks'
 gem 'jquery-turbolinks'
-
+gem 'daemons-rails'
 
 
 
