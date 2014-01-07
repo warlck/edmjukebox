@@ -15,10 +15,13 @@
 
 
 @import "bootstrap";
+@import "compass";
+
 
 
 .container.main {
 	margin-top: 150px;
+  padding-bottom: 30px;
 }
 
 .top-navigation {
@@ -145,3 +148,70 @@ body {
   margin-bottom: 30px; 
 }
 }
+
+
+
+
+.footer {
+
+  background: #f7f7f7;
+  padding: 4em 0 6em;
+  text-align: center;
+  font-size: 1em;
+
+
+  p {
+    color: #777;
+    padding:0 1em;
+  }
+}
+
+
+.services {
+    margin:2em 0;
+    font-family: Helvetica, Arial, sans-serif;
+ 
+    li {
+        position: relative;
+        @include inline-block();
+        margin: 1.5em;
+        @include transition(all .15s ease);
+ 
+        &:hover {
+            @include scale(1.25);
+            color: white;
+        }
+ 
+        &:before {
+            position: absolute;
+            width: 2em; /* center align technique, give width, negative half margin */
+            margin-left: -1em;
+            top: 1.5em;
+            left: 50%;
+        }
+ 
+        a {
+            display: block;
+            color: inherit;
+            padding: 2.5em 1em 1em;
+            width: 10em;
+            // allow truncation if needed
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+    }
+} 
+
+/* Twitter */
+.icon-twitter {color: #00a0d1}
+.icon-twitter:hover {background:#00a0d1}
+/* Facebook */
+.icon-facebook {color: #3b5998}
+.icon-facebook:hover {background: #3b5998}
+/* Google Plus */
+.icon-google-plus {color: #db4a39}
+.icon-google-plus:hover {background: #db4a39}
+/* Mail */
+.icon-mail {color: #7f7f7f}
+.icon-mail:hover {background:#7f7f7f}
