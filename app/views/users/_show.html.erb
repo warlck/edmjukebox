@@ -15,9 +15,10 @@
 	</div>
 	<% end %>
 
-
-	<div class="col-md-8 user-artist-podcasts">
-      <%= render 'users/user_artists_podcasts' %>
-	</div>
+    <% if @podcasts %>
+		<div class="col-md-8 user-artist-podcasts">
+	      <%= render 'users/user_artists_podcasts' %>
+		</div>
+	<% end %>
 </div>
 

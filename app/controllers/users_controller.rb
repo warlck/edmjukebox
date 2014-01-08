@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 	def show
 		@artists = current_user.artists.includes(:podcasts)
 		 if !params[:artist_id] 
-		 	@podcasts = @artists.first.podcasts
+		 	@podcasts = @artists.first.try(:podcasts)
 		 else
 		 	change_artist
 		 end	 
