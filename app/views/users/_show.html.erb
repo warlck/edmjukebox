@@ -1,4 +1,5 @@
 <div class="row">
+	<% cache ['subscriptions', current_user] do %>
 	<div class="col-md-4">
 	  <ul class="subscriptions">
 		<% @artists.each  do |artist| %>
@@ -12,6 +13,7 @@
 		<% end %>
 	   </ul>
 	</div>
+	<% end %>
 
 
 	<div class="col-md-8 user-artist-podcasts">

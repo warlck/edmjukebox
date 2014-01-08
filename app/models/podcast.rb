@@ -4,7 +4,7 @@ class Podcast < ActiveRecord::Base
    :guid, :published, :summary, :title   
 
 
-belongs_to :artist
+belongs_to :artist, touch: true
 
 validates :title, presence: true
 validates :duration, presence: true

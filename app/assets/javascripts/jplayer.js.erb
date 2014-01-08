@@ -64,15 +64,11 @@ $(function() {
 
 
 
-
-
-
     $(document).on('click', '.jp-next', function(){
-
+        console.log('next');
         if ( current_podcast.next().data('id') != null) {
 	    	current_podcast = current_podcast.next();
 	    	play(current_podcast);
-
 		}
     });
 

@@ -1,3 +1,4 @@
+<% cache [@artists.last, @artists.count] do %>
 <div class="col-md-8  artists-panel">
         <ul id ='artists' data-list ='artists'>
 		   <% @artists.each do |artist| %>
@@ -10,3 +11,4 @@
 		  
 		</ul>	    
 	</div>
+<% end %>

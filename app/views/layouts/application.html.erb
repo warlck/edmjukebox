@@ -37,6 +37,7 @@
 		<%= yield %>
  </div>
 
+  <% cache 'footer' do %>
   <footer class = "footer">
       <h1>Find Me on the Web</h1>
       <p>You can contact me or follow me via following services:</p>
@@ -47,6 +48,7 @@
          <li class = "icon-mail"><a href='mailto:addick@me.com'>Email</a></li>
       </ul>
   </footer>
+  <% end %>
 
 
 

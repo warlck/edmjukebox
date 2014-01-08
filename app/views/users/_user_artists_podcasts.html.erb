@@ -1,5 +1,7 @@
+<% cache ["user-artists-podcasts", @podcasts.first.artist] do %>
  <ul id="user-artists-podcasts" >
 	<%  @podcasts.each  do |podcast|%>
 	  <%= render partial: 'users/podcast', locals: {podcast: podcast }  %>
     <% end %>
 </ul>
+<% end %>

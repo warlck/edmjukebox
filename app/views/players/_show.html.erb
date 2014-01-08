@@ -1,5 +1,6 @@
 
 <% unless current_user %>
+<% cache 'jumbotron' do %>
 <div class="jumbotron">
 	<h2>Wellcome to rTunes, your favorite EDM podcasts player!</h1>
 		<p>Take 3 easy steps to listen:</p>
@@ -16,6 +17,7 @@
 		</div>
 
 </div>
+<% end %>
 <% end %>
 
 <div class="row">
