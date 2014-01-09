@@ -88,6 +88,7 @@ GEM
     daemons-rails (1.2.1)
       daemons
       multi_json (~> 1.0)
+    dalli (2.7.0)
     database_cleaner (1.2.0)
     debugger (1.6.2)
       columnize (>= 0.3.1)
@@ -154,6 +155,7 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    memcachier (0.0.2)
     method_source (0.8.2)
     mime-types (1.25)
     mini_portile (0.5.2)
@@ -273,6 +275,7 @@ DEPENDENCIES
   compass-susy-plugin
   cucumber-rails
   daemons-rails
+  dalli
   database_cleaner
   debugger
   factory_girl_rails
@@ -284,6 +287,7 @@ DEPENDENCIES
   launchy
   libnotify
   magic_encoding
+  memcachier
   newrelic_rpm
   paperclip (~> 3.5.0)
   pg
