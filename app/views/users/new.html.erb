@@ -1,5 +1,5 @@
+<% cache 'singup' do %>
 <h1 class= 'col-sm-offset-2'>New User Registration</h1>
-
 
 <div class="signup-form">
 <%= form_for @user, html: { class: 'form-horizontal', role: 'form' } do  |f| %>
@@ -45,8 +45,4 @@
   </div>
 <% end %>
 </div>
-
-<script type="text/javascript">
-      $('#jp-pause').hide();
-      $('#track-info').empty();
-</script>
+<% end %>
