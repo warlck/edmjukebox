@@ -53,7 +53,7 @@ feature 'User viewing player homepage' do
 		visit root_path
         expect(page).to have_content "Recent Podcasts"
         within ".recent-podcasts" do
-        	expect(page).to have_link podcast.title
+        	expect(page).to have_css "li.podcast_item"
         end
     end
 
