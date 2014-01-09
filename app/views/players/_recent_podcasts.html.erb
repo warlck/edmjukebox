@@ -3,8 +3,8 @@
 	<h4>Recent Podcasts:</h4>
 		<ul class="updates">
 			<% @podcasts.each do |podcast|%>
-			<li class="recent_podcast ">
-			    <a href="<%= j podcast.file_url %>" data-id="<%= podcast.id %>" class="podcast_item"><%= podcast.title %></a>
+			<li class="recent_podcast podcast_item" data-id="<%= podcast.id %>">
+			    <p><%= podcast.title %></p>
 			</li>
 			<% end %>
 		</ul>

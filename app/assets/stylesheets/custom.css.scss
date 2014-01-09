@@ -146,7 +146,11 @@ li.artist  {
 		font-weight: bold;
 
 		li {
-			padding-bottom: 15px;
+			margin-bottom: 15px;
+			color: #164264;
+			&:hover {
+				text-decoration: underline;
+			}
 		}
 
 	}
