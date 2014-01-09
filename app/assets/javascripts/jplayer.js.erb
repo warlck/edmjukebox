@@ -4,26 +4,37 @@ var playerInstance;
 var current_podcast;
 
 
-var play_url = function(podcast, player) {
-    var time;
-    if(player) 
-    	time = '&time='+player.data("jPlayer").status.currentTime;
-    else 
-    	time = '';
-	return '/play.js?id='+ podcast.data('id')+time;
-}
 
-var play  = function(current_podcast) {
-    $.ajax({
-			url: play_url(current_podcast, player)
-	});
-}
+
 
 
 
 
 $(function() {
     
+    var play_url = function(podcast, player) {
+	    var time;
+	    if(player) 
+	    	time = '&time='+player.data("jPlayer").status.currentTime;
+	    else 
+	    	time = '';
+		return '/play.js?id='+ podcast.data('id')+time;
+	}
+
+	var play  = function(current_podcast) {
+	    $.ajax({
+				url: play_url(current_podcast, player)
+		});
+	}
+
+	var getNext = function( current_podcast) {
+		return current_podcast.parent().next().children('li');
+	}
+
+	var getPrev = function( current_podcast) {
+		return current_podcast.parent().prev().children('li');
+	}
+
 
 	// $(document).on('click','.podcast', function() {
 	// 		var $this = $(this);
@@ -65,20 +76,31 @@ $(function() {
 
 
     $(document).on('click', '.jp-next', function(){
-        console.log('next');
+      
         if ( current_podcast.next().data('id') != null) {
 	    	current_podcast = current_podcast.next();
 	    	play(current_podcast);
 		}
+		else if (getNext(current_podcast).data('id') != null) 
+		{
+			current_podcast = getNext(current_podcast);
+			play(current_podcast);
+
+		}
+
     });
 
      $(document).on('click', '.jp-previous', function(){
 	 	 if ( current_podcast.prev().data('id') != null) {
 	     	current_podcast = current_podcast.prev();
 			play(current_podcast);
-	 	 }
+	 	 } 
+	 	 else if (getPrev(current_podcast).data('id') != null) 
+		{
+			current_podcast = getPrev(current_podcast);
+			play(current_podcast);
+		}
     });
-
 
 });
 

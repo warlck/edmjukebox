@@ -1,5 +1,4 @@
 
-
 $(function() {
    
     var upChevron = $('<span class="glyphicon glyphicon-chevron-up"></span>');
