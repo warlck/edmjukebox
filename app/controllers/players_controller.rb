@@ -2,6 +2,6 @@
 class PlayersController < ApplicationController
 	def show
 		@artists = Artist.scoped
-		@podcasts = Podcast.limit(10)
+		@podcasts = Podcast.limit(20)
 	end
 end

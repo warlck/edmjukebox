@@ -6,7 +6,7 @@ So I did.
 
 
 This application uses Amazon S3 to host image data of artists in cloud.
-Prior to hosting the app, or running it locally in development mode don't forget to set up S3 credentials as required if config files.
+Prior to hosting the app, or running it locally in development mode don't forget to set up S3 credentials as required in config files.
 
 
 
