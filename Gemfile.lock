@@ -1,6 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    SyslogLogger (2.0)
     actionmailer (3.2.13)
       actionpack (= 3.2.13)
       mail (~> 2.5.3)
@@ -265,6 +266,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  SyslogLogger
   aws-sdk (~> 1.6.0)
   bcrypt-ruby (~> 3.0.0)
   bootstrap-sass
