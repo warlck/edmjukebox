@@ -39,7 +39,7 @@ Edmplayer::Application.configure do
   # config.log_tags = [ :subdomain, :uuid ]
 
   # Use a different logger for distributed setups
-   config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new)
+    config.logger = Logger.new(STDOUT)
 
   # Use a different cache store in production
    config.cache_store = :dalli_store
