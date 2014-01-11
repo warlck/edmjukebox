@@ -20,7 +20,7 @@ while($running) do
   	artist.instance_eval("add_entries")
   end
 
-  Rails.logger.auto_flushing = true
+  #Rails.logger.auto_flushing = true
   Rails.logger.info "This daemon is still running at #{Time.now}.\n"
   
   sleep 10800
