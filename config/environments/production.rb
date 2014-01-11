@@ -1,5 +1,5 @@
 # -*- encoding : utf-8 -*-
-require 'syslog_logger'
+require 'syslog/logger'
 Edmplayer::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
