@@ -85,16 +85,20 @@ module Concerns
 	       #debugger
 	        feed.entries.each do |entry|
 	          unless Podcast.exists?( guid: guid(entry))
-	            podcasts << Podcast.create(
+	            add_podcast podcasts, entry
+	          end
+	        end
+	     end
+
+	     def add_podcast podcasts, entry
+             podcasts << Podcast.create(
 	              title: entry.title,
-	              summary: entry.summary || entry.itunes_summary,
+	              summary: summary(entry),
 	              file_url: enclosure(entry),
 	              guid: guid(entry),
 	              duration: duration(entry),
 	              published: entry.published
 	            )
-	          end
-	        end
 	     end
 
 	     def enclosure entry
@@ -105,6 +109,14 @@ module Concerns
 	        else
 	        	entry.image
 	        end
+	    end
+
+	    def summary entry
+	    	if entry.summary.empty? || entry.summary.nil?
+	    		entry.itunes_summary
+	    	else
+	    		entry.summary
+	    	end
 	    end
 
 	    def guid entry
