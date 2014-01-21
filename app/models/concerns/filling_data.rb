@@ -112,7 +112,7 @@ module Concerns
 	    end
 
 	    def summary entry
-	    	if entry.summary.empty? || entry.summary.nil?
+	    	if entry.summary.nil? || entry.summary.empty? 
 	    		entry.itunes_summary
 	    	else
 	    		entry.summary
